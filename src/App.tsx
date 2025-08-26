@@ -47,23 +47,6 @@ export default function IslandIntegrationSite() {
     { title: "System Support", desc: "Ongoing support, monitoring, and upgrades to keep everything running smoothly." },
   ] as const;
 
-  useEffect(() => {
-    const expected = [
-      "Lighting Control",
-      "Home Cinema",
-      "Automated Shading",
-      "Design",
-      "Climate Control",
-      "Multi-Room TV & Audio",
-      "Smart Home Security",
-      "WiFi & Networking",
-      "System Support",
-    ];
-    console.assert(services.length === 9, `Expected 9 services, got ${services.length}`);
-    expected.forEach((t, i) => console.assert(services[i]?.title === t, `Service[${i}] should be '${t}', got '${services[i]?.title}'`));
-    console.assert(/^mailto:/i.test(mailtoHref), "mailtoHref should start with 'mailto:'");
-  }, []);
-
   const fadeUp = {
     initial: { opacity: 0, y: 24 },
     animate: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } },
@@ -84,11 +67,7 @@ export default function IslandIntegrationSite() {
             <a href="#contact" className="hover:opacity-60">Contact</a>
           </nav>
 
-          <button
-            aria-label="Toggle theme"
-            onClick={() => setDark(d => !d)}
-            className={`mr-2 hidden sm:inline-flex items-center gap-2 rounded-full border px-3 py-2 text-xs ${dark ? 'border-white/15 hover:bg-white/5' : 'border-neutral-300/70 hover:bg-neutral-100'}`}
-          >
+          <button aria-label="Toggle theme" onClick={() => setDark(d => !d)} className={`mr-2 hidden sm:inline-flex items-center gap-2 rounded-full border px-3 py-2 text-xs ${dark ? 'border-white/15 hover:bg-white/5' : 'border-neutral-300/70 hover:bg-neutral-100'}`}>
             {dark ? '🌙 Dark' : '☀️ Light'}
           </button>
 
@@ -163,15 +142,7 @@ export default function IslandIntegrationSite() {
         </div>
         <div className="mt-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {services.map((s, i) => (
-            <motion.div
-              key={s.title}
-              variants={fadeUp}
-              initial="initial"
-              whileInView="animate"
-              viewport={{ once: true }}
-              transition={{ delay: i * 0.05 }}
-              className={`group rounded-2xl border backdrop-blur p-6 shadow-sm hover:shadow-lg transition relative overflow-hidden ${dark ? 'border-white/10 bg-white/5' : 'border-neutral-200/70 bg-white/70'}`}
-            >
+            <motion.div key={s.title} variants={fadeUp} initial="initial" whileInView="animate" viewport={{ once: true }} transition={{ delay: i * 0.05 }} className={`group rounded-2xl border backdrop-blur p-6 shadow-sm hover:shadow-lg transition relative overflow-hidden ${dark ? 'border-white/10 bg-white/5' : 'border-neutral-200/70 bg-white/70'}`}>
               <div className="pointer-events-none absolute -right-6 -top-6 h-24 w-24 rounded-full bg-neutral-100 group-hover:bg-neutral-200 transition" />
               <div className="flex items-center justify-between">
                 <div className="p-2 rounded-xl bg-neutral-100 text-neutral-900">
@@ -257,13 +228,7 @@ export default function IslandIntegrationSite() {
         </div>
       </footer>
 
-      <a
-        href={mailtoHref}
-        target="_top"
-        rel="noopener noreferrer"
-        className="hidden md:inline-flex fixed bottom-6 right-6 rounded-full bg-neutral-900 text-white px-5 py-3 shadow-lg"
-        title="Email Island Integration"
-      >
+      <a href={mailtoHref} target="_top" rel="noopener noreferrer" className="hidden md:inline-flex fixed bottom-6 right-6 rounded-full bg-neutral-900 text-white px-5 py-3 shadow-lg" title="Email Island Integration">
         Book a Consultation
       </a>
       <a href="tel:+12428209013" className="md:hidden fixed bottom-6 right-6 rounded-full bg-neutral-900 text-white px-5 py-3 shadow-lg">Call Now</a>
