@@ -1,22 +1,23 @@
-# Island Integration — GitHub Pages Starter
+# Island Integration — GitHub Pages Only
 
-## Dev
-```bash
-npm ci
-npm run dev
-```
+You don't need to run anything locally. Just upload this repository to GitHub and it will deploy automatically.
 
-## Build
-```bash
-npm run build
-npm run preview
-```
+## 1) Create repo
+- Name it **Island-Integration** (or change `vite.config.ts` base if you pick a different name).
 
-## Deploy to GitHub Pages
-1. Replace `YOUR_REPO_NAME` in `vite.config.ts` with your repo name.
-2. Commit and push to `main`.
-3. In GitHub, go to **Settings → Pages** and set **Source** to "GitHub Actions".
+## 2) Upload
+- Click **Add file → Upload files** in your repo on GitHub.
+- Drag all files/folders from this zip (keep the structure).
+- Commit to the **main** branch.
 
-### Logo
-- Put your logo file at `public/logo.png`.
-- Code uses `${import.meta.env.BASE_URL}logo.png` so paths work on GitHub Pages.
+## 3) Enable Pages
+- Repo **Settings → Pages** → set **Source** to **GitHub Actions** (one-time).
+
+## 4) Watch the deploy
+- Go to **Actions → Deploy to GitHub Pages** → watch **build** then **deploy** finish.
+- Your site will be at: `https://<your-username>.github.io/Island-Integration/`
+
+## Notes
+- Logo path is GH Pages safe and theme-aware.
+- Book a Consultation uses a `mailto:` link, which works on GitHub Pages.
+- To change repo name, update `vite.config.ts` → `base: "/<YOUR_REPO_NAME>/"`.

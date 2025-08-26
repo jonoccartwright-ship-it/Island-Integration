@@ -9,14 +9,14 @@ export default function IslandIntegrationSite() {
 
   const heroRef = useRef<HTMLDivElement | null>(null);
   const { scrollYProgress: heroProgress } = useScroll({ target: heroRef, offset: ["start start", "end start"] });
-  const springConfig = { stiffness: 100, damping: 30, mass: 1 } as const;
-  const heroY = useSpring(useTransform(heroProgress, [0, 1], [0, 240]), springConfig);
-  const heroScale = useSpring(useTransform(heroProgress, [0, 1], [1, 1.08]), springConfig);
-  const heroOpacity = useSpring(useTransform(heroProgress, [0, 1], [1, 0.8]), springConfig);
+  const spring = { stiffness: 100, damping: 30, mass: 1 } as const;
+  const heroY = useSpring(useTransform(heroProgress, [0, 1], [0, 240]), spring);
+  const heroScale = useSpring(useTransform(heroProgress, [0, 1], [1, 1.08]), spring);
+  const heroOpacity = useSpring(useTransform(heroProgress, [0, 1], [1, 0.8]), spring);
 
   const [reduceMotion, setReduceMotion] = useState(false);
   useEffect(() => {
-    const media = window.matchMedia("(prefers-reduced-motion: reduce)");
+    const media = matchMedia("(prefers-reduced-motion: reduce)");
     setReduceMotion(media.matches);
     const onChange = () => setReduceMotion(media.matches);
     media.addEventListener?.("change", onChange);
@@ -47,17 +47,14 @@ export default function IslandIntegrationSite() {
     { title: "System Support", desc: "Ongoing support, monitoring, and upgrades to keep everything running smoothly." },
   ] as const;
 
-  const fadeUp = {
-    initial: { opacity: 0, y: 24 },
-    animate: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } },
-  } as const;
+  const fadeUp = { initial: { opacity: 0, y: 24 }, animate: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } } } as const;
 
   return (
     <div className={`font-sans scroll-smooth selection:bg-black selection:text-white ${dark ? 'bg-neutral-950 text-neutral-100' : 'bg-white text-neutral-900'}`}>
       <header className={`sticky top-0 z-50 backdrop-blur border-b ${dark ? 'bg-neutral-950/70 border-white/10' : 'bg-white/70 border-neutral-200/60'}`}>
         <div className="mx-auto max-w-7xl px-4 py-3 flex items-center justify-between">
           <a href="#home" className="flex items-center gap-3">
-            <img src={logoSrc} alt="Island Integration logo" className="h-8 w-auto" />
+            <img src={logoSrc} alt="Island Integration logo" className={`h-8 w-auto ${dark ? '' : 'invert'}`} />
             <span className="font-semibold tracking-wide">Island Integration</span>
           </a>
 
@@ -83,7 +80,7 @@ export default function IslandIntegrationSite() {
             <nav className={`absolute right-0 top-0 h-full w-72 shadow-xl p-6 flex flex-col gap-4 ${dark ? 'bg-neutral-900 text-white' : 'bg-white'}`}>
               <div className="flex items-center justify-between">
                 <div className="flex items-center gap-3">
-                  <img src={logoSrc} alt="Island Integration logo" className="h-6 w-auto" />
+                  <img src={logoSrc} alt="Island Integration logo" className={`h-6 w-auto ${dark ? '' : 'invert'}`} />
                   <span className="font-semibold">Island Integration</span>
                 </div>
                 <button aria-label="Close menu" className="rounded-md p-2 hover:bg-neutral-100" onClick={() => setOpen(false)}>✕</button>
@@ -105,7 +102,7 @@ export default function IslandIntegrationSite() {
         <div className="mx-auto max-w-7xl px-4 py-28 md:py-40">
           <motion.div variants={fadeUp} initial="initial" whileInView="animate" viewport={{ once: false, margin: "-80px" }} className="max-w-2xl">
             <div className="mb-6 flex items-center gap-3">
-              <img src={logoSrc} alt="Island Integration logo" className="h-10 w-auto" />
+              <img src={logoSrc} alt="Island Integration logo" className={`h-10 w-auto ${dark ? '' : 'invert'}`} />
               <span className="sr-only">Island Integration</span>
             </div>
             <h1 className="text-4xl md:text-6xl font-semibold leading-tight">
@@ -211,7 +208,7 @@ export default function IslandIntegrationSite() {
                 <textarea rows={4} className={`mt-1 w-full rounded-lg border px-3 py-2 outline-none focus:ring-2 ${dark ? 'border-neutral-700 focus:ring-white/30 bg-neutral-900 text-white' : 'border-neutral-300 focus:ring-neutral-900'}`} placeholder="Tell us about your project..." />
               </label>
               <button className="mt-2 rounded-full bg-neutral-900 text-white px-6 py-3">Send</button>
-              <p className="text-xs text-neutral-500">This demo form doesn’t send yet. We can wire it to Formspree or a Netlify/Vercel function.</p>
+              <p className="text-xs text-neutral-500">This demo form doesn’t send yet. We can wire it to Formspree later.</p>
             </div>
           </motion.form>
         </div>
