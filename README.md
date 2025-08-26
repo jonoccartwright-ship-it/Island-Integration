@@ -1,16 +1,17 @@
-# Island Integration — GitHub Pages (White Theme Only)
+# Island Integration — Static Site (Core Files)
 
-This bundle is ready for GitHub-only testing. No local tooling is required.
+This bundle includes the "core files" separated:
+- `index.html`
+- `styles.css`
+- `app.js`
+- `public/logo.png`, `public/hero-poster.jpg`
+- `public/services/*.jpg` and `.webp` placeholders for all 9 services
 
-## Steps
-1) Create a repo (ideally **Island-Integration**).
-2) Upload all files/folders from this ZIP and commit to **main**.
-3) Settings → **Pages** → Source: **GitHub Actions** (one-time).
-4) Actions → watch **Deploy to GitHub Pages** finish.
-5) Site URL: `https://<your-username>.github.io/Island-Integration/`
+## Deploy to GitHub Pages
+1. Upload everything in this zip to your repo root (so `index.html` is at the top level).
+2. Settings → Pages → Deploy from a branch → Branch: main, Folder: /(root).
 
-## Logo
-- Put your light-on-white version at: `public/logo-light.png`
-- The code references `logo-light.png` only (no dark theme).
-
-If your repo name differs, edit `vite.config.ts` → `base: "/<YOUR_REPO_NAME>/"`.
+## Add your own images
+Place your photos in `public/services/` with these basenames: 
+lighting, cinema, shading, design, climate, multiroom, security, wifi, support
+Use any of: .avif, .webp, .jpg, .png (the script picks the first that actually exists).
