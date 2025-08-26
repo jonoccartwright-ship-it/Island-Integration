@@ -1,23 +1,16 @@
-# Island Integration — GitHub Pages Only
+# Island Integration — GitHub Pages (White Theme Only)
 
-You don't need to run anything locally. Just upload this repository to GitHub and it will deploy automatically.
+This bundle is ready for GitHub-only testing. No local tooling is required.
 
-## 1) Create repo
-- Name it **Island-Integration** (or change `vite.config.ts` base if you pick a different name).
+## Steps
+1) Create a repo (ideally **Island-Integration**).
+2) Upload all files/folders from this ZIP and commit to **main**.
+3) Settings → **Pages** → Source: **GitHub Actions** (one-time).
+4) Actions → watch **Deploy to GitHub Pages** finish.
+5) Site URL: `https://<your-username>.github.io/Island-Integration/`
 
-## 2) Upload
-- Click **Add file → Upload files** in your repo on GitHub.
-- Drag all files/folders from this zip (keep the structure).
-- Commit to the **main** branch.
+## Logo
+- Put your light-on-white version at: `public/logo-light.png`
+- The code references `logo-light.png` only (no dark theme).
 
-## 3) Enable Pages
-- Repo **Settings → Pages** → set **Source** to **GitHub Actions** (one-time).
-
-## 4) Watch the deploy
-- Go to **Actions → Deploy to GitHub Pages** → watch **build** then **deploy** finish.
-- Your site will be at: `https://<your-username>.github.io/Island-Integration/`
-
-## Notes
-- Logo path is GH Pages safe and theme-aware.
-- Book a Consultation uses a `mailto:` link, which works on GitHub Pages.
-- To change repo name, update `vite.config.ts` → `base: "/<YOUR_REPO_NAME>/"`.
+If your repo name differs, edit `vite.config.ts` → `base: "/<YOUR_REPO_NAME>/"`.
