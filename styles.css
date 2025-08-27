@@ -1,4 +1,0 @@
-/* Extra polish beyond Tailwind */
-.reveal { opacity: 0; transform: translateY(24px); transition: opacity .6s ease, transform .6s ease; }
-.reveal.show { opacity: 1; transform: translateY(0); }
-.hero-parallax { will-change: transform, opacity; }
