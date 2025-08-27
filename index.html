@@ -9,12 +9,9 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
     html { scroll-behavior: smooth; }
-    /* Replayable reveal */
     .reveal { opacity: 0; transform: translateY(24px) scale(.985); transition: opacity .6s ease, transform .6s ease; }
     .reveal.is-in { opacity: 1; transform: translateY(0) scale(1); }
-    /* Performance hints */
     .hero-parallax, .card, .partner { will-change: transform, opacity, filter; }
-    /* Subtle polish */
     .glass { background: rgba(255,255,255,.72); backdrop-filter: blur(8px); }
     .btn { transition: transform .15s ease, box-shadow .15s ease; }
     .btn:hover { transform: translateY(-1px); box-shadow: 0 8px 24px rgba(0,0,0,.12); }
@@ -22,7 +19,6 @@
     .card { transition: transform .4s ease, opacity .4s ease, box-shadow .3s ease, filter .3s ease; }
     .card:hover { box-shadow: 0 10px 30px rgba(0,0,0,.08); }
     .icon { width: 24px; height: 24px; }
-    /* Focused scrim behind hero content (improves contrast without washing whole video) */
     .hero-scrim {
       position: absolute; inset: -24px;
       background:
@@ -30,22 +26,19 @@
         radial-gradient(800px 400px at 50% 40%, rgba(0,0,0,.30), transparent 60%);
       pointer-events: none; border-radius: 24px;
     }
-    /* Partners logo styling */
+    /* Partners */
     .partner {
       filter: grayscale(100%) contrast(1) brightness(.95);
-      opacity: .8;
+      opacity: .85;
       transition: filter .25s ease, opacity .25s ease, transform .25s ease;
+      object-fit: contain;
     }
-    .partner:hover {
-      filter: grayscale(0%) contrast(1.05) brightness(1);
-      opacity: 1;
-      transform: translateY(-2px);
-    }
+    .partner:hover { filter: grayscale(0%) contrast(1.05) brightness(1); opacity: 1; transform: translateY(-2px); }
   </style>
 </head>
 <body class="bg-white text-neutral-900 selection:bg-black selection:text-white">
 
-  <!-- Header (nav only, centered) -->
+  <!-- Header (centered nav only) -->
   <header id="site-header" class="sticky top-0 z-50 border-b border-neutral-200/60 glass">
     <div class="mx-auto max-w-7xl px-4 py-3 flex items-center justify-center">
       <nav class="flex items-center gap-8 text-sm">
@@ -60,39 +53,31 @@
   <!-- Hero -->
   <section id="home" class="relative overflow-hidden">
     <div id="hero-layer" class="absolute inset-0 -z-10 hero-parallax">
-      <!-- Background video with poster fallback -->
       <video class="h-full w-full object-cover" autoplay muted loop playsinline preload="metadata" poster="public/hero-poster.jpg">
         <source src="public/hero.webm" type="video/webm" />
         <source src="public/hero.mp4" type="video/mp4" />
         <img src="public/hero-poster.jpg" alt="Luxury smart home" />
       </video>
-      <!-- Top-only white fade to lift header; leaves bottom vivid -->
       <div class="absolute inset-0 pointer-events-none"
            style="background: linear-gradient(to top, rgba(255,255,255,0) 42%, rgba(255,255,255,0.6));"></div>
     </div>
 
     <div class="mx-auto max-w-7xl px-4 py-28 md:py-40">
-      <!-- Centered content block with focused scrim -->
       <div class="relative max-w-3xl mx-auto reveal">
         <div class="hero-scrim"></div>
         <div class="relative flex flex-col items-center text-center">
-          <!-- Clean floating logo (no box) -->
           <img src="public/logo.png" alt="Island Integration logo" class="h-28 md:h-32 w-auto drop-shadow-[0_6px_24px_rgba(0,0,0,.45)]" />
-
-          <!-- White headline for strong contrast -->
           <h1 class="mt-6 text-white text-4xl md:text-6xl font-semibold leading-tight drop-shadow-[0_6px_18px_rgba(0,0,0,.45)]">
             Smart Homes & Luxury Integration
           </h1>
           <p class="mt-4 text-white/90 text-lg md:text-xl max-w-2xl drop-shadow-[0_4px_14px_rgba(0,0,0,.45)]">
             Bahamas-based Control4, networking, AV, and security specialists.
           </p>
-
           <div class="mt-8">
             <a href="#contact" class="btn rounded-full bg-white text-neutral-900 px-7 py-3 font-medium shadow-md">
               Connect with us
             </a>
           </div>
-
           <p class="mt-6 text-sm text-white/80 max-w-2xl drop-shadow-[0_3px_10px_rgba(0,0,0,.45)]">
             12+ years delivering seamless control, resilient networks, and beautiful audio/visual experiences across Nassau,
             New Providence, and the outer islands.
@@ -109,10 +94,9 @@
         <h2 class="text-2xl md:text-4xl font-semibold">Services</h2>
         <div class="h-1 w-24 bg-gradient-to-r rounded-full mt-3 from-neutral-900 to-neutral-500"></div>
       </div>
-      <!-- removed "Request a site visit" per request -->
+      <!-- removed "Request a site visit" -->
     </div>
 
-    <!-- 3x3 grid; icons above titles -->
     <div class="mt-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
       <!-- 1 Lighting Control -->
       <div class="card reveal group rounded-2xl border p-0 overflow-hidden border-neutral-200/70 bg-white/70" data-speed="0.06">
@@ -269,33 +253,27 @@
 
   <!-- Our Partners -->
   <section id="partners" class="mx-auto max-w-7xl px-4 py-16">
-    <div class="flex items-end justify-between gap-6">
-      <div>
-        <h2 class="text-2xl md:text-4xl font-semibold">Our Partners</h2>
-        <div class="h-1 w-24 bg-gradient-to-r rounded-full mt-3 from-neutral-900 to-neutral-500"></div>
-      </div>
+    <div>
+      <h2 class="text-2xl md:text-4xl font-semibold">Our Partners</h2>
+      <div class="h-1 w-24 bg-gradient-to-r rounded-full mt-3 from-neutral-900 to-neutral-500"></div>
     </div>
 
-    <!-- Professional logo strip/grid -->
-    <div class="mt-10 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-6 items-center">
-      <!-- Replace files in public/partners/... with your own -->
+    <!-- Use the exact filenames you provided -->
+    <div class="mt-10 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-6 items-center">
       <div class="reveal flex items-center justify-center p-4">
-        <img src="public/partners/control4.png" alt="Control4" class="partner h-10 w-auto max-w-[140px]" />
+        <img src="public/partners/bond.jpg" alt="Bond" class="partner h-12 w-full max-w-[180px]" />
       </div>
       <div class="reveal flex items-center justify-center p-4">
-        <img src="public/partners/lutron.png" alt="Lutron" class="partner h-10 w-auto max-w-[140px]" />
+        <img src="public/partners/bvd.jpg" alt="BVD International" class="partner h-12 w-full max-w-[200px]" />
       </div>
       <div class="reveal flex items-center justify-center p-4">
-        <img src="public/partners/sonos.png" alt="Sonos" class="partner h-10 w-auto max-w-[140px]" />
+        <img src="public/partners/control4.jpg" alt="Control4" class="partner h-12 w-full max-w-[220px]" />
       </div>
       <div class="reveal flex items-center justify-center p-4">
-        <img src="public/partners/ubiquiti.png" alt="Ubiquiti" class="partner h-10 w-auto max-w-[140px]" />
+        <img src="public/partners/origin.jpg" alt="Origin Acoustics" class="partner h-12 w-full max-w-[200px]" />
       </div>
       <div class="reveal flex items-center justify-center p-4">
-        <img src="public/partners/samsung.png" alt="Samsung" class="partner h-10 w-auto max-w-[140px]" />
-      </div>
-      <div class="reveal flex items-center justify-center p-4">
-        <img src="public/partners/sony.png" alt="Sony" class="partner h-10 w-auto max-w-[140px]" />
+        <img src="public/partners/snapone.jpg" alt="Snap One" class="partner h-12 w-full max-w-[220px]" />
       </div>
     </div>
   </section>
@@ -310,7 +288,7 @@
       <li class="reveal rounded-2xl border border-neutral-200 p-5"><div class="text-xs text-neutral-500">Step 1</div><div class="mt-1 font-semibold">Consultation</div><p class="mt-2 text-neutral-600">Site walk-through or plans review. We listen, measure, and define goals.</p></li>
       <li class="reveal rounded-2xl border border-neutral-200 p-5"><div class="text-xs text-neutral-500">Step 2</div><div class="mt-1 font-semibold">Design & Estimate</div><p class="mt-2 text-neutral-600">Clear scope, equipment list, and timeline with mobilization details.</p></li>
       <li class="reveal rounded-2xl border border-neutral-200 p-5"><div class="text-xs text-neutral-500">Step 3</div><div class="mt-1 font-semibold">Installation</div><p class="mt-2 text-neutral-600">Clean, labeled wiring; racks and devices documented and tested.</p></li>
-      <li class="reveal rounded-2xl border border-neutral-200 p-5"><div class="text-xs text-neutral-500">Step 4</div><div class="mt-1 font-semibold">Support</div><p class="mt-2 text-neutral-600">Remote monitoring, on-site care, and upgrade paths.</p></li>
+      <li class="reveal rounded-2xl border border-neutral-200 p-5"><div class="text-xs text-neutral-500">Support</div><p class="mt-2 text-neutral-600">Remote monitoring, on-site care, and upgrade paths.</p></li>
     </ol>
   </section>
 
@@ -324,7 +302,6 @@
         </p>
         <div class="mt-6 text-sm text-neutral-600">We typically reply the same day.</div>
       </div>
-      <!-- Mailto contact form -->
       <form
         class="reveal rounded-2xl border p-6 shadow-sm border-neutral-200 bg-white"
         onsubmit="event.preventDefault(); (function(form){
@@ -369,16 +346,13 @@
      title="Email us">Connect with us</a>
   <a href="tel:+12428209013" class="md:hidden fixed bottom-6 right-6 rounded-full bg-neutral-900 text-white px-5 py-3 shadow-lg">Call Now</a>
 
-  <!-- Inline JS: replayable reveal + hero parallax + services parallax (both directions) -->
   <script>
     (function () {
-      // Replayable reveal
       const io = new IntersectionObserver((entries) => {
         entries.forEach((e) => e.target.classList.toggle('is-in', e.isIntersecting));
       }, { threshold: 0.15 });
       document.querySelectorAll('.reveal').forEach((el) => io.observe(el));
 
-      // Hero parallax (both directions)
       const hero = document.getElementById('hero-layer');
       const onScrollHero = () => {
         const y = window.scrollY || 0;
@@ -389,7 +363,6 @@
         hero.style.opacity = String(opacity);
       };
 
-      // Services parallax cards (both directions)
       const cards = Array.from(document.querySelectorAll('.card'));
       const vh = () => Math.max(document.documentElement.clientHeight, window.innerHeight || 0);
       let ticking = false;
@@ -413,7 +386,6 @@
         });
       };
 
-      // Header shadow
       const header = document.getElementById('site-header');
       const tweakHeader = () => {
         if ((window.scrollY || 0) > 4) header.classList.add('sticky-shadow');
@@ -426,7 +398,6 @@
       window.addEventListener('resize', onScrollServices, { passive: true });
       onScrollHero(); onScrollServices(); tweakHeader();
 
-      // Respect prefers-reduced-motion: remove video & keep poster
       if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
         const v = document.querySelector('#hero-layer video');
         if (v) v.remove();
