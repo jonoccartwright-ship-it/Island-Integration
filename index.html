@@ -3,40 +3,97 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Island Integration</title>
-  <meta name="description" content="Smart Homes & Luxury Integration — Bahamas-based Control4, AV, networking, and security specialists." />
+
+  <!-- SEO -->
+  <title>Island Integration | Home Automation in Nassau & The Bahamas</title>
+  <meta name="description" content="Island Integration provides smart home automation, Control4, AV, security, lighting, shading, climate control, multi-room audio/TV, and enterprise Wi-Fi across Nassau and the Bahamas. 12+ years of expert design, installation, and support." />
   <link rel="icon" href="public/logo.png" />
+
+  <!-- Canonical -->
+  <link rel="canonical" href="https://www.island-integration.com/" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Island Integration — Home Automation in Nassau & The Bahamas" />
+  <meta property="og:description" content="Control4 smart home systems, lighting, AV, security, networking and support across the Bahamas." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://www.island-integration.com/" />
+  <meta property="og:image" content="https://www.island-integration.com/public/hero-poster.jpg" />
+  <meta property="og:image:alt" content="Luxury smart home interior in the Bahamas" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Island Integration — Home Automation in Nassau & The Bahamas" />
+  <meta name="twitter:description" content="Control4 · Lighting · AV · Security · Networking" />
+  <meta name="twitter:image" content="https://www.island-integration.com/public/hero-poster.jpg" />
+
+  <!-- Theme color -->
+  <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#0a0a0a" media="(prefers-color-scheme: dark)">
+
+  <!-- Preload hero assets -->
+  <link rel="preload" as="image" href="public/hero-poster.jpg">
+  <link rel="preload" as="video" href="public/hero.mp4" type="video/mp4">
+  <link rel="preload" as="video" href="public/hero.webm" type="video/webm">
+
+  <!-- LocalBusiness JSON-LD -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "Island Integration",
+    "url": "https://www.island-integration.com/",
+    "logo": "https://www.island-integration.com/public/logo.png",
+    "image": "https://www.island-integration.com/public/hero-poster.jpg",
+    "telephone": "+12428209013",
+    "email": "info@island-integration.com",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Nassau",
+      "addressCountry": "BS"
+    },
+    "areaServed": ["Nassau", "New Providence", "Bahamas"],
+    "priceRange": "$$$",
+    "geo": { "@type": "GeoCoordinates", "latitude": 25.0343, "longitude": -77.3963 },
+    "hasOfferCatalog": {
+      "@type": "OfferCatalog",
+      "name": "Smart Home & Automation Services",
+      "itemListElement": [
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Home Automation (Control4)" } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Lighting Control" } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Home Cinema" } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Automated Shading" } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Climate Control" } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Multi-Room TV & Audio" } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Smart Home Security" } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Wi-Fi & Networking" } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "System Support" } }
+      ]
+    }
+  }
+  </script>
+
+  <!-- Tailwind CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
     html { scroll-behavior: smooth; }
-    /* Reveal-on-scroll (replayable) */
-    .reveal { opacity: 0; transform: translateY(24px) scale(.985); transition: opacity .6s ease, transform .6s ease; }
-    .reveal.is-in { opacity: 1; transform: translateY(0) scale(1); }
-    /* Perf hints */
+    .reveal { opacity:0; transform: translateY(24px) scale(.985); transition: opacity .6s ease, transform .6s ease; }
+    .reveal.is-in { opacity:1; transform: translateY(0) scale(1); }
     .hero-parallax, .card, .partner { will-change: transform, opacity; }
     .glass { background: rgba(255,255,255,.72); backdrop-filter: blur(8px); }
     .btn { transition: transform .15s ease, box-shadow .15s ease; }
     .btn:hover { transform: translateY(-1px); box-shadow: 0 8px 24px rgba(0,0,0,.12); }
     .sticky-shadow { box-shadow: 0 8px 24px rgba(0,0,0,.06); }
-    .card { transition: transform .4s ease, opacity .4s ease, box-shadow .3s ease, filter .3s ease; }
+    .card { transition: transform .4s ease, opacity .4s ease, box-shadow .3s ease; }
     .card:hover { box-shadow: 0 10px 30px rgba(0,0,0,.08); }
-    .icon { width: 24px; height: 24px; }
-    /* Focused scrim behind hero content (contrast without washing the whole video) */
+    .icon { width:24px; height:24px; }
+    .partner { opacity:.95; object-fit: contain; max-height:56px; transition: transform .25s ease, opacity .25s ease; }
+    .partner:hover { opacity:1; transform: translateY(-2px); }
     .hero-scrim {
-      position: absolute; inset: -24px;
-      background:
-        radial-gradient(1200px 480px at 50% 40%, rgba(0,0,0,.40), transparent 70%),
-        radial-gradient(800px 400px at 50% 40%, rgba(0,0,0,.30), transparent 60%);
-      pointer-events: none; border-radius: 24px;
+      position:absolute; inset:-24px;
+      background: radial-gradient(1200px 480px at 50% 40%, rgba(0,0,0,.40), transparent 70%),
+                  radial-gradient(800px 400px at 50% 40%, rgba(0,0,0,.30), transparent 60%);
+      pointer-events:none; border-radius:24px;
     }
-    /* Partners (full color, uniform height) */
-    .partner {
-      opacity: .95;
-      object-fit: contain;
-      max-height: 56px;
-      transition: transform .25s ease, opacity .25s ease;
-    }
-    .partner:hover { opacity: 1; transform: translateY(-2px); }
   </style>
 </head>
 <body class="bg-white text-neutral-900 selection:bg-black selection:text-white">
@@ -59,9 +116,9 @@
       <video class="h-full w-full object-cover" autoplay muted loop playsinline preload="metadata" poster="public/hero-poster.jpg">
         <source src="public/hero.webm" type="video/webm" />
         <source src="public/hero.mp4" type="video/mp4" />
-        <img src="public/hero-poster.jpg" alt="Luxury smart home" />
+        <img src="public/hero-poster.jpg" alt="Luxury smart home interior in the Bahamas" />
       </video>
-      <!-- Top-only white fade to lift header; leaves bottom vivid -->
+      <!-- top white fade to lift header; keeps bottom vivid -->
       <div class="absolute inset-0 pointer-events-none"
            style="background: linear-gradient(to top, rgba(255,255,255,0) 42%, rgba(255,255,255,0.6));"></div>
     </div>
@@ -70,23 +127,18 @@
       <div class="relative max-w-3xl mx-auto reveal">
         <div class="hero-scrim"></div>
         <div class="relative flex flex-col items-center text-center">
-          <!-- Clean floating logo (no box) -->
           <img src="public/logo.png" alt="Island Integration logo" class="h-28 md:h-32 w-auto drop-shadow-[0_6px_24px_rgba(0,0,0,.45)]" />
-
-          <!-- White headline for strong contrast -->
           <h1 class="mt-6 text-white text-4xl md:text-6xl font-semibold leading-tight drop-shadow-[0_6px_18px_rgba(0,0,0,.45)]">
-            Smart Homes & Luxury Integration
+            Home Automation & Smart Home Solutions in Nassau, Bahamas
           </h1>
           <p class="mt-4 text-white/90 text-lg md:text-xl max-w-2xl drop-shadow-[0_4px_14px_rgba(0,0,0,.45)]">
-            Bahamas-based Control4, networking, AV, and security specialists.
+            Control4, networking, AV, lighting, security, and support across the Bahamas.
           </p>
-
           <div class="mt-8">
             <a href="#contact" class="btn rounded-full bg-white text-neutral-900 px-7 py-3 font-medium shadow-md">
               Connect with us
             </a>
           </div>
-
           <p class="mt-6 text-sm text-white/80 max-w-2xl drop-shadow-[0_3px_10px_rgba(0,0,0,.45)]">
             12+ years delivering seamless control, resilient networks, and beautiful audio/visual experiences across Nassau,
             New Providence, and the outer islands.
@@ -103,14 +155,13 @@
         <h2 class="text-2xl md:text-4xl font-semibold">Services</h2>
         <div class="h-1 w-24 bg-gradient-to-r rounded-full mt-3 from-neutral-900 to-neutral-500"></div>
       </div>
-      <!-- (No “Request a site visit”) -->
     </div>
 
     <div class="mt-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
       <!-- 1 Lighting Control -->
       <div class="card reveal group rounded-2xl border p-0 overflow-hidden border-neutral-200/70 bg-white/70" data-speed="0.06">
         <div class="aspect-[4/3] w-full overflow-hidden">
-          <img src="public/services/lighting.jpg" alt="Lighting Control photo" class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.03]" />
+          <img loading="lazy" decoding="async" src="public/services/lighting.jpg" alt="Lighting control installation in Nassau Bahamas" class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.03]" />
         </div>
         <div class="p-6">
           <div class="p-2 rounded-xl bg-neutral-100 text-neutral-900 w-fit">
@@ -126,7 +177,7 @@
       <!-- 2 Home Cinema -->
       <div class="card reveal group rounded-2xl border p-0 overflow-hidden border-neutral-200/70 bg-white/70" data-speed="0.04">
         <div class="aspect-[4/3] w-full overflow-hidden">
-          <img src="public/services/cinema.jpg" alt="Home Cinema photo" class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.03]" />
+          <img loading="lazy" decoding="async" src="public/services/cinema.jpg" alt="Home cinema design and installation Bahamas" class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.03]" />
         </div>
         <div class="p-6">
           <div class="p-2 rounded-xl bg-neutral-100 text-neutral-900 w-fit">
@@ -143,7 +194,7 @@
       <!-- 3 Automated Shading -->
       <div class="card reveal group rounded-2xl border p-0 overflow-hidden border-neutral-200/70 bg-white/70" data-speed="0.05">
         <div class="aspect-[4/3] w-full overflow-hidden">
-          <img src="public/services/shading.jpg" alt="Automated Shading photo" class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.03]" />
+          <img loading="lazy" decoding="async" src="public/services/shading.jpg" alt="Automated shading and motorized blinds Bahamas" class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.03]" />
         </div>
         <div class="p-6">
           <div class="p-2 rounded-xl bg-neutral-100 text-neutral-900 w-fit">
@@ -159,7 +210,7 @@
       <!-- 4 Design -->
       <div class="card reveal group rounded-2xl border p-0 overflow-hidden border-neutral-200/70 bg-white/70" data-speed="0.06">
         <div class="aspect-[4/3] w-full overflow-hidden">
-          <img src="public/services/design.jpg" alt="Design photo" class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.03]" />
+          <img loading="lazy" decoding="async" src="public/services/design.jpg" alt="Smart home system design Bahamas" class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.03]" />
         </div>
         <div class="p-6">
           <div class="p-2 rounded-xl bg-neutral-100 text-neutral-900 w-fit">
@@ -176,7 +227,7 @@
       <!-- 5 Climate Control -->
       <div class="card reveal group rounded-2xl border p-0 overflow-hidden border-neutral-200/70 bg-white/70" data-speed="0.04">
         <div class="aspect-[4/3] w-full overflow-hidden">
-          <img src="public/services/climate.jpg" alt="Climate Control photo" class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.03]" />
+          <img loading="lazy" decoding="async" src="public/services/climate.jpg" alt="Smart climate control Nassau Bahamas" class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.03]" />
         </div>
         <div class="p-6">
           <div class="p-2 rounded-xl bg-neutral-100 text-neutral-900 w-fit">
@@ -193,7 +244,7 @@
       <!-- 6 Multi-Room TV & Audio -->
       <div class="card reveal group rounded-2xl border p-0 overflow-hidden border-neutral-200/70 bg-white/70" data-speed="0.05">
         <div class="aspect-[4/3] w-full overflow-hidden">
-          <img src="public/services/multiroom.jpg" alt="Multi-Room TV & Audio photo" class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.03]" />
+          <img loading="lazy" decoding="async" src="public/services/multiroom.jpg" alt="Multi-room TV and audio distribution Bahamas" class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.03]" />
         </div>
         <div class="p-6">
           <div class="p-2 rounded-xl bg-neutral-100 text-neutral-900 w-fit">
@@ -210,7 +261,7 @@
       <!-- 7 Smart Home Security -->
       <div class="card reveal group rounded-2xl border p-0 overflow-hidden border-neutral-200/70 bg-white/70" data-speed="0.06">
         <div class="aspect-[4/3] w-full overflow-hidden">
-          <img src="public/services/security.jpg" alt="Smart Home Security photo" class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.03]" />
+          <img loading="lazy" decoding="async" src="public/services/security.jpg" alt="Smart home security and surveillance Bahamas" class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.03]" />
         </div>
         <div class="p-6">
           <div class="p-2 rounded-xl bg-neutral-100 text-neutral-900 w-fit">
@@ -226,7 +277,7 @@
       <!-- 8 WiFi & Networking -->
       <div class="card reveal group rounded-2xl border p-0 overflow-hidden border-neutral-200/70 bg-white/70" data-speed="0.04">
         <div class="aspect-[4/3] w-full overflow-hidden">
-          <img src="public/services/wifi.jpg" alt="WiFi & Networking photo" class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.03]" />
+          <img loading="lazy" decoding="async" src="public/services/wifi.jpg" alt="Enterprise-grade Wi-Fi and networking Bahamas" class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.03]" />
         </div>
         <div class="p-6">
           <div class="p-2 rounded-xl bg-neutral-100 text-neutral-900 w-fit">
@@ -235,7 +286,7 @@
               <circle cx="12" cy="18" r="1.5" fill="currentColor"/>
             </svg>
           </div>
-          <h3 class="mt-4 font-semibold">WiFi & Networking</h3>
+          <h3 class="mt-4 font-semibold">Wi-Fi & Networking</h3>
           <p class="mt-2 text-sm text-neutral-600">Enterprise-grade Wi-Fi, fiber, and resilient network infrastructure for fast, reliable connectivity.</p>
         </div>
       </div>
@@ -243,7 +294,7 @@
       <!-- 9 System Support -->
       <div class="card reveal group rounded-2xl border p-0 overflow-hidden border-neutral-200/70 bg-white/70" data-speed="0.05">
         <div class="aspect-[4/3] w-full overflow-hidden">
-          <img src="public/services/support.jpg" alt="System Support photo" class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.03]" />
+          <img loading="lazy" decoding="async" src="public/services/support.jpg" alt="Smart home system support and maintenance Bahamas" class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.03]" />
         </div>
         <div class="p-6">
           <div class="p-2 rounded-xl bg-neutral-100 text-neutral-900 w-fit">
@@ -269,19 +320,19 @@
 
     <div class="mt-10 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-6 items-center">
       <div class="reveal flex items-center justify-center p-4">
-        <img src="public/partners/bond.jpg" alt="Bond" class="partner w-auto" />
+        <img loading="lazy" decoding="async" src="public/partners/bond.jpg" alt="Bond Home logo" class="partner w-auto" />
       </div>
       <div class="reveal flex items-center justify-center p-4">
-        <img src="public/partners/bvd.jpg" alt="BVD International" class="partner w-auto" />
+        <img loading="lazy" decoding="async" src="public/partners/bvd.jpg" alt="BVD International logo" class="partner w-auto" />
       </div>
       <div class="reveal flex items-center justify-center p-4">
-        <img src="public/partners/control4.jpg" alt="Control4" class="partner w-auto" />
+        <img loading="lazy" decoding="async" src="public/partners/control4.jpg" alt="Control4 logo" class="partner w-auto" />
       </div>
       <div class="reveal flex items-center justify-center p-4">
-        <img src="public/partners/origin.jpg" alt="Origin Acoustics" class="partner w-auto" />
+        <img loading="lazy" decoding="async" src="public/partners/origin.jpg" alt="Origin Acoustics logo" class="partner w-auto" />
       </div>
       <div class="reveal flex items-center justify-center p-4">
-        <img src="public/partners/snapone.jpg" alt="Snap One" class="partner w-auto" />
+        <img loading="lazy" decoding="async" src="public/partners/snapone.jpg" alt="Snap One logo" class="partner w-auto" />
       </div>
     </div>
   </section>
@@ -327,7 +378,7 @@
         <div class="mt-6 text-sm text-neutral-600">We typically reply the same day.</div>
       </div>
 
-      <!-- Mailto contact form -->
+      <!-- Mailto-based form (GitHub Pages friendly) -->
       <form
         class="reveal rounded-2xl border p-6 shadow-sm border-neutral-200 bg-white"
         onsubmit="event.preventDefault(); (function(form){
@@ -372,10 +423,10 @@
      title="Email us">Connect with us</a>
   <a href="tel:+12428209013" class="md:hidden fixed bottom-6 right-6 rounded-full bg-neutral-900 text-white px-5 py-3 shadow-lg">Call Now</a>
 
-  <!-- Inline JS: replayable reveal + hero parallax + services parallax (both directions) -->
+  <!-- Scripts: reveal + hero parallax + services parallax + header shadow -->
   <script>
     (function () {
-      // Replayable reveal
+      // Replayable reveal-on-scroll
       const io = new IntersectionObserver((entries) => {
         entries.forEach((e) => e.target.classList.toggle('is-in', e.isIntersecting));
       }, { threshold: 0.15 });
@@ -392,7 +443,7 @@
         hero.style.opacity = String(opacity);
       };
 
-      // Services parallax cards (both directions)
+      // Services parallax cards
       const cards = Array.from(document.querySelectorAll('.card'));
       const vh = () => Math.max(document.documentElement.clientHeight, window.innerHeight || 0);
       let ticking = false;
@@ -416,17 +467,20 @@
         });
       };
 
-      // Header shadow
+      // Header shadow on scroll
       const header = document.getElementById('site-header');
       const tweakHeader = () => {
         if ((window.scrollY || 0) > 4) header.classList.add('sticky-shadow');
         else header.classList.remove('sticky-shadow');
       };
 
+      // Bind
       window.addEventListener('scroll', onScrollHero, { passive: true });
       window.addEventListener('scroll', onScrollServices, { passive: true });
       window.addEventListener('scroll', tweakHeader, { passive: true });
       window.addEventListener('resize', onScrollServices, { passive: true });
+
+      // Init
       onScrollHero(); onScrollServices(); tweakHeader();
 
       // Respect prefers-reduced-motion: remove video & keep poster
