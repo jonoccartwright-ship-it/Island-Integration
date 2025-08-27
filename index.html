@@ -13,7 +13,7 @@
     .reveal { opacity: 0; transform: translateY(24px) scale(.985); transition: opacity .6s ease, transform .6s ease; }
     .reveal.is-in { opacity: 1; transform: translateY(0) scale(1); }
     /* Performance hints */
-    .hero-parallax, .card { will-change: transform, opacity; }
+    .hero-parallax, .card, .partner { will-change: transform, opacity, filter; }
     /* Subtle polish */
     .glass { background: rgba(255,255,255,.72); backdrop-filter: blur(8px); }
     .btn { transition: transform .15s ease, box-shadow .15s ease; }
@@ -30,6 +30,17 @@
         radial-gradient(800px 400px at 50% 40%, rgba(0,0,0,.30), transparent 60%);
       pointer-events: none; border-radius: 24px;
     }
+    /* Partners logo styling */
+    .partner {
+      filter: grayscale(100%) contrast(1) brightness(.95);
+      opacity: .8;
+      transition: filter .25s ease, opacity .25s ease, transform .25s ease;
+    }
+    .partner:hover {
+      filter: grayscale(0%) contrast(1.05) brightness(1);
+      opacity: 1;
+      transform: translateY(-2px);
+    }
   </style>
 </head>
 <body class="bg-white text-neutral-900 selection:bg-black selection:text-white">
@@ -39,6 +50,7 @@
     <div class="mx-auto max-w-7xl px-4 py-3 flex items-center justify-center">
       <nav class="flex items-center gap-8 text-sm">
         <a href="#services" class="hover:opacity-60">Services</a>
+        <a href="#partners" class="hover:opacity-60">Our Partners</a>
         <a href="#process" class="hover:opacity-60">Process</a>
         <a href="#contact" class="hover:opacity-60">Contact</a>
       </nav>
@@ -60,7 +72,7 @@
     </div>
 
     <div class="mx-auto max-w-7xl px-4 py-28 md:py-40">
-      <!-- Centered content block with focused scrim & subtle blur -->
+      <!-- Centered content block with focused scrim -->
       <div class="relative max-w-3xl mx-auto reveal">
         <div class="hero-scrim"></div>
         <div class="relative flex flex-col items-center text-center">
@@ -77,7 +89,7 @@
 
           <div class="mt-8">
             <a href="#contact" class="btn rounded-full bg-white text-neutral-900 px-7 py-3 font-medium shadow-md">
-              Request a Consultation
+              Connect with us
             </a>
           </div>
 
@@ -97,7 +109,7 @@
         <h2 class="text-2xl md:text-4xl font-semibold">Services</h2>
         <div class="h-1 w-24 bg-gradient-to-r rounded-full mt-3 from-neutral-900 to-neutral-500"></div>
       </div>
-      <a href="#contact" class="text-sm underline underline-offset-4">Request a site visit</a>
+      <!-- removed "Request a site visit" per request -->
     </div>
 
     <!-- 3x3 grid; icons above titles -->
@@ -255,6 +267,39 @@
     </div>
   </section>
 
+  <!-- Our Partners -->
+  <section id="partners" class="mx-auto max-w-7xl px-4 py-16">
+    <div class="flex items-end justify-between gap-6">
+      <div>
+        <h2 class="text-2xl md:text-4xl font-semibold">Our Partners</h2>
+        <div class="h-1 w-24 bg-gradient-to-r rounded-full mt-3 from-neutral-900 to-neutral-500"></div>
+      </div>
+    </div>
+
+    <!-- Professional logo strip/grid -->
+    <div class="mt-10 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-6 items-center">
+      <!-- Replace files in public/partners/... with your own -->
+      <div class="reveal flex items-center justify-center p-4">
+        <img src="public/partners/control4.png" alt="Control4" class="partner h-10 w-auto max-w-[140px]" />
+      </div>
+      <div class="reveal flex items-center justify-center p-4">
+        <img src="public/partners/lutron.png" alt="Lutron" class="partner h-10 w-auto max-w-[140px]" />
+      </div>
+      <div class="reveal flex items-center justify-center p-4">
+        <img src="public/partners/sonos.png" alt="Sonos" class="partner h-10 w-auto max-w-[140px]" />
+      </div>
+      <div class="reveal flex items-center justify-center p-4">
+        <img src="public/partners/ubiquiti.png" alt="Ubiquiti" class="partner h-10 w-auto max-w-[140px]" />
+      </div>
+      <div class="reveal flex items-center justify-center p-4">
+        <img src="public/partners/samsung.png" alt="Samsung" class="partner h-10 w-auto max-w-[140px]" />
+      </div>
+      <div class="reveal flex items-center justify-center p-4">
+        <img src="public/partners/sony.png" alt="Sony" class="partner h-10 w-auto max-w-[140px]" />
+      </div>
+    </div>
+  </section>
+
   <!-- Process -->
   <section id="process" class="mx-auto max-w-7xl px-4 py-20">
     <div>
@@ -321,7 +366,7 @@
   <a href="mailto:info@island-integration.com?subject=Consultation%20Request"
      target="_top" rel="noopener noreferrer"
      class="hidden md:inline-flex fixed bottom-6 right-6 rounded-full bg-neutral-900 text-white px-5 py-3 shadow-lg"
-     title="Email us">Book a Consultation</a>
+     title="Email us">Connect with us</a>
   <a href="tel:+12428209013" class="md:hidden fixed bottom-6 right-6 rounded-full bg-neutral-900 text-white px-5 py-3 shadow-lg">Call Now</a>
 
   <!-- Inline JS: replayable reveal + hero parallax + services parallax (both directions) -->
