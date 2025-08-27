@@ -8,15 +8,27 @@
   <link rel="icon" href="public/logo.png" />
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
-    /* Small bespoke polish beyond Tailwind */
     html { scroll-behavior: smooth; }
-    .reveal { opacity: 0; transform: translateY(24px); transition: opacity .6s ease, transform .6s ease; }
-    .reveal.show { opacity: 1; transform: translateY(0); }
+    /* Reveal (replayable) */
+    .reveal {
+      opacity: 0; transform: translateY(24px) scale(.985);
+      transition: opacity .6s ease, transform .6s ease, box-shadow .3s ease;
+    }
+    .reveal.is-in {
+      opacity: 1; transform: translateY(0) scale(1);
+    }
+    /* Subtle parallax container hints */
     .hero-parallax { will-change: transform, opacity; }
     .glass { background: rgba(255,255,255,.72); backdrop-filter: blur(8px); }
     .btn { transition: transform .15s ease, box-shadow .15s ease; }
     .btn:hover { transform: translateY(-1px); box-shadow: 0 8px 24px rgba(0,0,0,.12); }
     .sticky-shadow { box-shadow: 0 8px 24px rgba(0,0,0,.06); }
+    /* Card polish */
+    .card {
+      will-change: transform, opacity;
+      transition: transform .4s ease, opacity .4s ease, box-shadow .3s ease, filter .3s ease;
+    }
+    .card:hover { box-shadow: 0 10px 30px rgba(0,0,0,.08); }
   </style>
 </head>
 <body class="bg-white text-neutral-900 selection:bg-black selection:text-white">
@@ -40,17 +52,14 @@
 
   <!-- Hero -->
   <section id="home" class="relative overflow-hidden">
-    <!-- Parallax background (image, reliable on GitHub Pages) -->
     <div id="hero-layer" class="absolute inset-0 -z-10 hero-parallax">
       <img src="public/hero-poster.jpg" alt="Luxury smart home" class="h-full w-full object-cover" />
       <div class="absolute inset-0 bg-gradient-to-t from-white via-white/40 to-transparent"></div>
     </div>
-
     <div class="mx-auto max-w-7xl px-4 py-28 md:py-40">
       <div class="max-w-2xl reveal">
         <div class="mb-6 flex items-center gap-3">
           <span class="inline-flex items-center justify-center rounded-2xl p-2 md:p-3 bg-black/5 ring-1 ring-black/5">
-            <!-- Larger hero logo for presence -->
             <img src="public/logo.png" alt="Island Integration logo" class="h-16 md:h-20 w-auto drop-shadow-sm" />
           </span>
         </div>
@@ -83,10 +92,9 @@
       <a href="#contact" class="text-sm underline underline-offset-4">Request a site visit</a>
     </div>
 
-    <!-- Static cards (reliable on Pages). Swap images in public/services/*.jpg -->
     <div class="mt-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-      <!-- 1 Lighting Control -->
-      <div class="reveal group rounded-2xl border p-0 shadow-sm hover:shadow-lg transition relative overflow-hidden border-neutral-200/70 bg-white/70">
+      <!-- Repeatable card pattern; data-speed controls parallax amount -->
+      <div class="card reveal group rounded-2xl border p-0 overflow-hidden border-neutral-200/70 bg-white/70" data-speed="0.06">
         <div class="aspect-[4/3] w-full overflow-hidden">
           <img src="public/services/lighting.jpg" alt="Lighting Control photo" class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.03]">
         </div>
@@ -96,8 +104,7 @@
         </div>
       </div>
 
-      <!-- 2 Home Cinema -->
-      <div class="reveal group rounded-2xl border p-0 shadow-sm hover:shadow-lg transition relative overflow-hidden border-neutral-200/70 bg-white/70">
+      <div class="card reveal group rounded-2xl border p-0 overflow-hidden border-neutral-200/70 bg-white/70" data-speed="0.04">
         <div class="aspect-[4/3] w-full overflow-hidden">
           <img src="public/services/cinema.jpg" alt="Home Cinema photo" class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.03]">
         </div>
@@ -107,8 +114,7 @@
         </div>
       </div>
 
-      <!-- 3 Automated Shading -->
-      <div class="reveal group rounded-2xl border p-0 shadow-sm hover:shadow-lg transition relative overflow-hidden border-neutral-200/70 bg-white/70">
+      <div class="card reveal group rounded-2xl border p-0 overflow-hidden border-neutral-200/70 bg-white/70" data-speed="0.05">
         <div class="aspect-[4/3] w-full overflow-hidden">
           <img src="public/services/shading.jpg" alt="Automated Shading photo" class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.03]">
         </div>
@@ -118,8 +124,7 @@
         </div>
       </div>
 
-      <!-- 4 Design -->
-      <div class="reveal group rounded-2xl border p-0 shadow-sm hover:shadow-lg transition relative overflow-hidden border-neutral-200/70 bg-white/70">
+      <div class="card reveal group rounded-2xl border p-0 overflow-hidden border-neutral-200/70 bg-white/70" data-speed="0.06">
         <div class="aspect-[4/3] w-full overflow-hidden">
           <img src="public/services/design.jpg" alt="Design photo" class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.03]">
         </div>
@@ -129,8 +134,7 @@
         </div>
       </div>
 
-      <!-- 5 Climate Control -->
-      <div class="reveal group rounded-2xl border p-0 shadow-sm hover:shadow-lg transition relative overflow-hidden border-neutral-200/70 bg-white/70">
+      <div class="card reveal group rounded-2xl border p-0 overflow-hidden border-neutral-200/70 bg-white/70" data-speed="0.04">
         <div class="aspect-[4/3] w-full overflow-hidden">
           <img src="public/services/climate.jpg" alt="Climate Control photo" class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.03]">
         </div>
@@ -140,8 +144,7 @@
         </div>
       </div>
 
-      <!-- 6 Multi-Room TV & Audio -->
-      <div class="reveal group rounded-2xl border p-0 shadow-sm hover:shadow-lg transition relative overflow-hidden border-neutral-200/70 bg-white/70">
+      <div class="card reveal group rounded-2xl border p-0 overflow-hidden border-neutral-200/70 bg-white/70" data-speed="0.05">
         <div class="aspect-[4/3] w-full overflow-hidden">
           <img src="public/services/multiroom.jpg" alt="Multi-Room TV & Audio photo" class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.03]">
         </div>
@@ -151,8 +154,7 @@
         </div>
       </div>
 
-      <!-- 7 Smart Home Security -->
-      <div class="reveal group rounded-2xl border p-0 shadow-sm hover:shadow-lg transition relative overflow-hidden border-neutral-200/70 bg-white/70">
+      <div class="card reveal group rounded-2xl border p-0 overflow-hidden border-neutral-200/70 bg-white/70" data-speed="0.06">
         <div class="aspect-[4/3] w-full overflow-hidden">
           <img src="public/services/security.jpg" alt="Smart Home Security photo" class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.03]">
         </div>
@@ -162,8 +164,7 @@
         </div>
       </div>
 
-      <!-- 8 WiFi & Networking -->
-      <div class="reveal group rounded-2xl border p-0 shadow-sm hover:shadow-lg transition relative overflow-hidden border-neutral-200/70 bg-white/70">
+      <div class="card reveal group rounded-2xl border p-0 overflow-hidden border-neutral-200/70 bg-white/70" data-speed="0.04">
         <div class="aspect-[4/3] w-full overflow-hidden">
           <img src="public/services/wifi.jpg" alt="WiFi & Networking photo" class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.03]">
         </div>
@@ -173,8 +174,7 @@
         </div>
       </div>
 
-      <!-- 9 System Support -->
-      <div class="reveal group rounded-2xl border p-0 shadow-sm hover:shadow-lg transition relative overflow-hidden border-neutral-200/70 bg-white/70">
+      <div class="card reveal group rounded-2xl border p-0 overflow-hidden border-neutral-200/70 bg-white/70" data-speed="0.05">
         <div class="aspect-[4/3] w-full overflow-hidden">
           <img src="public/services/support.jpg" alt="System Support photo" class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.03]">
         </div>
@@ -256,41 +256,70 @@
      title="Email us">Book a Consultation</a>
   <a href="tel:+12428209013" class="md:hidden fixed bottom-6 right-6 rounded-full bg-neutral-900 text-white px-5 py-3 shadow-lg">Call Now</a>
 
-  <!-- Minimal inline JS for parallax + reveal + header shadow -->
+  <!-- Inline JS: replayable reveal + hero parallax + services parallax (both directions) -->
   <script>
     (function () {
-      // Reveal-on-scroll (one-time)
+      // Replayable reveal in BOTH directions
       const io = new IntersectionObserver((entries) => {
         entries.forEach((e) => {
-          if (e.isIntersecting) {
-            e.target.classList.add('show');
-            io.unobserve(e.target);
-          }
+          if (e.isIntersecting) e.target.classList.add('is-in');
+          else e.target.classList.remove('is-in');
         });
-      }, { threshold: 0.15 });
+      }, { root: null, threshold: 0.15 });
       document.querySelectorAll('.reveal').forEach((el) => io.observe(el));
 
-      // Parallax on hero (both scroll directions)
+      // Hero parallax (both directions)
       const hero = document.getElementById('hero-layer');
-      const onScroll = () => {
-        const y = window.scrollY || window.pageYOffset || 0;
+      const onScrollHero = () => {
+        const y = window.scrollY || 0;
         const translate = Math.min(y * 0.15, 240);
         const scale = 1 + Math.min(y / 4000, 0.08);
         const opacity = Math.max(1 - y / 1200, 0.82);
         hero.style.transform = `translateY(${translate}px) scale(${scale})`;
         hero.style.opacity = String(opacity);
       };
-      window.addEventListener('scroll', onScroll, { passive: true });
-      onScroll();
 
-      // Header shadow after first scroll tick
+      // Services parallax cards (both directions)
+      const cards = Array.from(document.querySelectorAll('.card'));
+      const vh = () => Math.max(document.documentElement.clientHeight, window.innerHeight || 0);
+
+      let ticking = false;
+      const onScrollServices = () => {
+        if (ticking) return;
+        ticking = true;
+        requestAnimationFrame(() => {
+          const h = vh();
+          for (const card of cards) {
+            const rect = card.getBoundingClientRect();
+            const mid = rect.top + rect.height / 2;   // card center
+            const dist = (mid - h / 2);               // distance from viewport center
+            const speed = parseFloat(card.dataset.speed || '0.05'); // tune per-card
+            const translateY = dist * speed;          // positive if below center, negative if above
+            const fade = 1 - Math.min(Math.abs(dist) / (h * 0.9), 0.35); // subtle fade toward edges
+            const scale = 1 - Math.min(Math.abs(dist) / (h * 3.5), 0.02); // micro-scale for depth
+
+            card.style.transform = `translateY(${translateY.toFixed(1)}px) scale(${scale.toFixed(3)})`;
+            card.style.opacity = fade.toFixed(3);
+          }
+          ticking = false;
+        });
+      };
+
+      // Header shadow
       const header = document.getElementById('site-header');
       const tweakHeader = () => {
         if ((window.scrollY || 0) > 4) header.classList.add('sticky-shadow');
         else header.classList.remove('sticky-shadow');
       };
+
+      // Wire up
+      window.addEventListener('scroll', onScrollHero, { passive: true });
+      window.addEventListener('scroll', onScrollServices, { passive: true });
       window.addEventListener('scroll', tweakHeader, { passive: true });
-      tweakHeader();
+
+      // Initial run
+      onScrollHero(); onScrollServices(); tweakHeader();
+      window.addEventListener('resize', onScrollServices, { passive: true });
     })();
   </script>
 </body>
