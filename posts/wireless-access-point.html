@@ -27,6 +27,7 @@
     .dropdown-panel{transition:opacity .16s ease,transform .16s ease;transform-origin:top center}
     .nav-about.open .dropdown-panel{visibility:visible;opacity:1;transform:scale(1);pointer-events:auto}
     .nav-about:not(.open) .dropdown-panel{opacity:0;transform:scale(.98);pointer-events:none;visibility:hidden}
+    h2.section-title{font-size:1.75rem;line-height:1.3;font-weight:700;margin-top:2.5rem;margin-bottom:1rem;color:#111827}
   </style>
 </head>
 <body class="bg-white text-neutral-900 selection:bg-black selection:text-white">
@@ -66,7 +67,7 @@
           <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5" viewBox="0 0 20 20" fill="currentColor"><path d="M12.293 15.707a1 1 0 010-1.414L15.586 11H5a1 1 0 110-2h10.586l-3.293-3.293a1 1 0 111.414-1.414l5 5a1 1 0 010 1.414l-5 5a1 1 0 01-1.414 0z"/></svg>
           Back to Blog
         </a>
-        <h1 class="mt-4 text-3xl md:text-5xl font-semibold leading-tight">How Does a Wireless Access Point Work?</h1>
+        <h1 class="mt-4 text-3xl md:text-5xl font-bold leading-tight">How Does a Wireless Access Point Work?</h1>
         <div class="mt-3 text-sm text-neutral-600">Networking • <time datetime="2025-08-27">Aug 27, 2025</time> • ~5 min read</div>
       </div>
     </div>
@@ -82,52 +83,52 @@
         <strong>Why this matters:</strong> Understanding the role of a <em>wireless access point (WAP)</em> helps you design, upgrade, and troubleshoot networks that feel seamless.
       </div>
 
-      <h2 id="what-is-wap" class="mt-10">What Is a Wireless Access Point?</h2>
+      <h2 class="section-title">What Is a Wireless Access Point?</h2>
       <p>A <strong>wireless access point</strong> lets Wi‑Fi devices connect to a wired network. In many homes, your ISP’s wireless router combines routing + access point in one box. In larger or higher‑performance properties, we install <strong>dedicated APs</strong> to deliver strong, stable coverage in every room and outdoor area.</p>
       <p>We deploy <strong>professional‑grade access points</strong> connected by <strong>Ethernet backbones</strong> for low latency and high throughput. APs broadcast Wi‑Fi over radio frequencies so laptops, phones, tablets, TVs, and smart‑home systems can connect securely.</p>
 
-      <h2 id="how-it-works" class="mt-10">How a WAP Works (In Plain English)</h2>
+      <h2 class="section-title">How a WAP Works (In Plain English)</h2>
       <ol class="list-decimal pl-6">
-        <li><strong>Backhaul:</strong> The AP plugs into your network switch or router via Ethernet (or sometimes fiber), giving it a fast path to the internet and other devices.</li>
+        <li><strong>Backhaul:</strong> The AP plugs into your network switch or router via Ethernet (or sometimes fiber).</li>
         <li><strong>Broadcast:</strong> The AP creates one or more Wi‑Fi networks (SSIDs) on 2.4/5/6 GHz bands.</li>
-        <li><strong>Association:</strong> Your device authenticates (password/802.1X) and joins the AP.</li>
-        <li><strong>Roaming:</strong> In multi‑AP designs, your device moves between APs as you walk, staying on the same SSID for a seamless experience.</li>
+        <li><strong>Association:</strong> Your device authenticates and joins the AP.</li>
+        <li><strong>Roaming:</strong> In multi‑AP designs, your device moves between APs seamlessly.</li>
       </ol>
 
-      <h2 id="limits" class="mt-10">The Limits of a Single Access Point</h2>
-      <p>A single AP might theoretically support ~30 devices within ~100 meters, but real‑world performance is constrained by <strong>walls</strong>, <strong>construction materials</strong>, <strong>interference</strong>, and <strong>layout</strong>. That’s why big homes and estates often feel great near the router and frustrating elsewhere.</p>
+      <h2 class="section-title">The Limits of a Single Access Point</h2>
+      <p>A single AP might support ~30 devices within ~100 meters, but real‑world performance is constrained by <strong>walls</strong>, <strong>construction materials</strong>, <strong>interference</strong>, and <strong>layout</strong>.</p>
       <ul class="list-disc pl-6">
-        <li><strong>Symptoms:</strong> weak signal, low speed, buffering, or random drops in far rooms and patios.</li>
-        <li><strong>Common causes:</strong> concrete/stone walls, mirrored glass, appliances, neighboring Wi‑Fi, and long distances.</li>
+        <li><strong>Symptoms:</strong> weak signal, low speed, buffering, or random drops in far rooms.</li>
+        <li><strong>Common causes:</strong> concrete walls, mirrored glass, appliances, neighboring Wi‑Fi.</li>
       </ul>
 
-      <h2 id="multi-ap" class="mt-10">When to Use Multiple APs, Mesh, or Repeaters</h2>
-      <p>To eliminate dead zones, we design <strong>multi‑AP networks</strong> with an Ethernet backbone wherever possible (best performance). In select scenarios, we may use <strong>mesh</strong> or <strong>wireless backhaul</strong>, but wired backhaul remains the gold standard for stability and throughput.</p>
+      <h2 class="section-title">When to Use Multiple APs, Mesh, or Repeaters</h2>
+      <p>To eliminate dead zones, we design <strong>multi‑AP networks</strong> with Ethernet backbones wherever possible. In select scenarios, we may use <strong>mesh</strong> or <strong>wireless backhaul</strong>, but wired backhaul remains the gold standard.</p>
       <ul class="list-disc pl-6">
-        <li><strong>Multiple APs:</strong> Best for large homes, multi‑storey properties, and estates. Supports higher device counts and seamless roaming.</li>
-        <li><strong>Mesh systems:</strong> Useful where wiring is hard; easier setup but lower peak performance vs. Ethernet backhaul.</li>
-        <li><strong>Repeaters/extenders:</strong> Can help in small spots but often halve throughput; we use sparingly.</li>
+        <li><strong>Multiple APs:</strong> Best for large homes and estates, supporting higher device counts.</li>
+        <li><strong>Mesh systems:</strong> Useful where wiring is hard; easier setup but lower performance.</li>
+        <li><strong>Repeaters:</strong> Can help in small spots but often halve throughput.</li>
       </ul>
 
-      <h2 id="business" class="mt-10">Why Businesses and Estates Rely on APs</h2>
-      <p>Modern LANs are primarily wireless. In offices, hotels, and developments across the Bahamas, access points provide flexible, secure connectivity for laptops, phones, video conferencing, and building automation — without pulling a cable to every desk.</p>
-      <p>For developers and hospitality teams, we implement <strong>seamless roaming</strong> and <strong>guest networks</strong> with the right authentication and VLANs to keep staff systems segmented and secure.</p>
+      <h2 class="section-title">Why Businesses and Estates Rely on APs</h2>
+      <p>Modern LANs are primarily wireless. In offices, hotels, and developments across the Bahamas, APs provide flexible, secure connectivity for laptops, phones, and building automation — without pulling a cable to every desk.</p>
+      <p>For developers and hospitality teams, we implement <strong>seamless roaming</strong> and <strong>guest networks</strong> with the right security to keep staff systems segmented.</p>
 
-      <h2 id="hotspots" class="mt-10">Everyday Uses: Wi‑Fi Hotspots</h2>
-      <p>Access points also power public Wi‑Fi in coffee shops, marinas, airports, and city centers. We extend the same technology into private estates and luxury residences so streaming, work, and smart‑home control stay reliable indoors and out.</p>
+      <h2 class="section-title">Everyday Uses: Wi‑Fi Hotspots</h2>
+      <p>APs also power public Wi‑Fi in coffee shops, marinas, airports, and city centers. We extend the same technology into private estates so streaming, work, and smart‑home control stay reliable indoors and out.</p>
 
-      <h2 id="choosing" class="mt-10">Choosing the Right Setup (Quick Checklist)</h2>
+      <h2 class="section-title">Choosing the Right Setup (Quick Checklist)</h2>
       <ul class="list-disc pl-6">
         <li><strong>Coverage plan:</strong> Floor plans, materials, outdoor areas, and outbuildings.</li>
-        <li><strong>Backbone:</strong> Prefer Ethernet/fiber backhaul; use mesh only where wiring isn’t feasible.</li>
-        <li><strong>Roaming:</strong> Consistent SSIDs and controller‑managed handoff for multi‑AP designs.</li>
-        <li><strong>Capacity:</strong> Device counts now and 3–5 year growth.</li>
-        <li><strong>Security:</strong> WPA3 where supported, guest VLANs, and proper firewalling.</li>
-        <li><strong>Power:</strong> PoE switches simplify AP placement and keep racks tidy.</li>
+        <li><strong>Backbone:</strong> Prefer Ethernet/fiber backhaul.</li>
+        <li><strong>Roaming:</strong> Consistent SSIDs and controller‑managed handoff.</li>
+        <li><strong>Capacity:</strong> Device counts now and future growth.</li>
+        <li><strong>Security:</strong> WPA3, guest VLANs, firewalling.</li>
+        <li><strong>Power:</strong> PoE switches simplify AP placement.</li>
       </ul>
 
-      <h2 id="bahamas" class="mt-10">Professional Wireless Networking in the Bahamas</h2>
-      <p>From Lyford Cay and Old Fort Bay to Ocean Club Estates and Albany, Island Integration delivers enterprise‑grade Wi‑Fi design for homes, yachts, and businesses. If you’re experiencing weak coverage, drop‑outs, or congestion, we can engineer a custom solution for your property.</p>
+      <h2 class="section-title">Professional Wireless Networking in the Bahamas</h2>
+      <p>From Lyford Cay and Old Fort Bay to Ocean Club Estates and Albany, Island Integration delivers enterprise‑grade Wi‑Fi design for homes, yachts, and businesses. If you’re experiencing weak coverage, we can engineer a custom solution for your property.</p>
 
       <div class="mt-8 grid grid-cols-1 sm:grid-cols-2 gap-3">
         <a href="tel:+12428209013" class="rounded-full text-center bg-neutral-900 text-white px-6 py-3">Call +1 (242) 820‑9013</a>
@@ -147,7 +148,6 @@
     <div class="mx-auto max-w-7xl px-4 py-8 text-sm text-neutral-600">© <span id="y"></span> Island Integration • Nassau, Bahamas</div>
   </footer>
 
-  <!-- Scripts: dropdown, reveal, header shadow -->
   <script>
   (function(){
     const DELAY=120;
@@ -165,15 +165,9 @@
       document.addEventListener('keydown',(e)=>{ if(e.key==='Escape') close(); });
     }
     document.querySelectorAll('.nav-about').forEach(initDropdown);
-
-    // year
     document.getElementById('y').textContent = new Date().getFullYear();
-
-    // reveal
     const io=new IntersectionObserver((es)=>es.forEach(e=>e.target.classList.toggle('is-in',e.isIntersecting)),{threshold:0.15});
     document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
-
-    // header shadow
     const header=document.getElementById('site-header');
     const tweak=()=>{(window.scrollY||0)>4?header.classList.add('sticky-shadow'):header.classList.remove('sticky-shadow');};
     window.addEventListener('scroll',tweak,{passive:true}); tweak();
