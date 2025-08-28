@@ -1,1 +1,6 @@
+# robots.txt for Island Integration
+User-agent: *
+Allow: /
 
+# Sitemap location
+Sitemap: https://www.island-integration.com/sitemap.xml
