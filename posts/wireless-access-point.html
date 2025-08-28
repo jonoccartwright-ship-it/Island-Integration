@@ -4,16 +4,26 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>How Does a Wireless Access Point Work? | Island Integration Blog</title>
-  <meta name="description" content="Learn how wireless access points extend Wi-Fi coverage in homes, estates, and businesses across the Bahamas. Island Integration explains how WAPs work and why they matter." />
+  <meta name="description" content="A clear, reader‑friendly guide to what wireless access points (WAPs) are, how they work, and when to use multiple APs, mesh, or Ethernet backbones — tailored for Bahamian homes, estates, yachts, and businesses." />
   <link rel="icon" href="../public/logo.png" />
   <link rel="canonical" href="https://www.island-integration.com/posts/wireless-access-point.html" />
+  <meta property="og:title" content="How Does a Wireless Access Point Work?" />
+  <meta property="og:description" content="Understand WAPs, roaming, and enterprise‑grade Wi‑Fi design. Practical tips from Island Integration for properties across the Bahamas." />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://www.island-integration.com/posts/wireless-access-point.html" />
+  <meta property="og:image" content="https://www.island-integration.com/public/blog/wireless-access-point.jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
+
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
     html{scroll-behavior:smooth}
-    .reveal{opacity:0;transform:translateY(24px);transition:opacity .6s ease,transform .6s ease}
-    .reveal.is-in{opacity:1;transform:translateY(0)}
+    .reveal{opacity:0;transform:translateY(18px) scale(.985);transition:opacity .55s ease,transform .55s ease}
+    .reveal.is-in{opacity:1;transform:translateY(0) scale(1)}
     .glass{background:rgba(255,255,255,.72);backdrop-filter:blur(8px)}
     .sticky-shadow{box-shadow:0 8px 24px rgba(0,0,0,.06)}
+    .prose p{margin-top:0.75rem;margin-bottom:0.75rem}
+    .lead{font-size:1.125rem;line-height:1.7}
+    .callout{border-left:4px solid #0a0a0a;background:#fafafa}
     .dropdown-panel{transition:opacity .16s ease,transform .16s ease;transform-origin:top center}
     .nav-about.open .dropdown-panel{visibility:visible;opacity:1;transform:scale(1);pointer-events:auto}
     .nav-about:not(.open) .dropdown-panel{opacity:0;transform:scale(.98);pointer-events:none;visibility:hidden}
@@ -30,43 +40,105 @@
         <a href="../index.html#process" class="hover:opacity-60">Process</a>
         <a href="../index.html#contact" class="hover:opacity-60">Contact</a>
         <div class="nav-about relative">
-          <button class="inline-flex items-center gap-1 hover:opacity-60" type="button">
+          <button class="inline-flex items-center gap-1 hover:opacity-60" aria-haspopup="true" aria-expanded="false" aria-controls="about-menu" type="button">
             About
             <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5" viewBox="0 0 20 20" fill="currentColor"><path d="M5.23 7.21a.75.75 0 011.06.02L10 11.116l3.71-3.886a.75.75 0 111.08 1.04l-4.25 4.45a.75.75 0 01-1.08 0l-4.25-4.45a.75.75 0 01.02-1.06z"/></svg>
           </button>
           <div class="absolute left-1/2 -translate-x-1/2 top-full w-44 h-3"></div>
-          <div class="dropdown-panel absolute left-1/2 -translate-x-1/2 mt-3 min-w-[200px] rounded-xl border border-neutral-200 bg-white shadow-xl py-2 text-sm z-50">
-            <a href="../about.html" class="block px-4 py-2 hover:bg-neutral-50">About Us</a>
-            <a href="../blog.html" class="block px-4 py-2 hover:bg-neutral-50">Blog</a>
+          <div id="about-menu" role="menu" class="dropdown-panel invisible opacity-0 scale-95 pointer-events-none absolute left-1/2 -translate-x-1/2 mt-3 min-w-[200px] rounded-xl border border-neutral-200 bg-white shadow-xl py-2 text-sm z-50">
+            <a href="../about.html" class="block px-4 py-2 hover:bg-neutral-50" role="menuitem">About Us</a>
+            <a href="../blog.html" class="block px-4 py-2 hover:bg-neutral-50" role="menuitem">Blog</a>
           </div>
         </div>
       </nav>
     </div>
   </header>
 
+  <!-- Post header / hero -->
+  <section class="relative overflow-hidden">
+    <div class="absolute inset-0 -z-10">
+      <img src="../public/blog/wireless-access-point.jpg" alt="Wireless access point in modern home" class="w-full h-72 md:h-[420px] object-cover">
+      <div class="absolute inset-0" style="background: linear-gradient(to top, rgba(255,255,255,0) 35%, rgba(255,255,255,.65));"></div>
+    </div>
+    <div class="mx-auto max-w-4xl px-4 pt-24 md:pt-40 pb-8">
+      <div class="reveal">
+        <a href="../blog.html" class="inline-flex items-center gap-2 text-sm text-neutral-700 hover:opacity-70">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5" viewBox="0 0 20 20" fill="currentColor"><path d="M12.293 15.707a1 1 0 010-1.414L15.586 11H5a1 1 0 110-2h10.586l-3.293-3.293a1 1 0 111.414-1.414l5 5a1 1 0 010 1.414l-5 5a1 1 0 01-1.414 0z"/></svg>
+          Back to Blog
+        </a>
+        <h1 class="mt-4 text-3xl md:text-5xl font-semibold leading-tight">How Does a Wireless Access Point Work?</h1>
+        <div class="mt-3 text-sm text-neutral-600">Networking • <time datetime="2025-08-27">Aug 27, 2025</time> • ~5 min read</div>
+      </div>
+    </div>
+  </section>
+
   <!-- Post body -->
-  <main class="mx-auto max-w-3xl px-4 py-16">
-    <article class="prose prose-neutral">
-      <h1 class="text-3xl md:text-4xl font-semibold mb-6">How Does a Wireless Access Point Work?</h1>
-      <p>At Island Integration, we’re constantly amazed at how far networking technology has come. Just a couple of decades ago, connecting devices to the internet meant running long cables or dealing with dial-up frustrations. Today, we expect instant, wireless access everywhere—from our homes to offices, yachts, and even public spaces.</p>
-      
-      <h2>What is a Wireless Access Point?</h2>
-      <p>A wireless access point is a device that allows Wi-Fi-enabled devices to connect to a wired network. In most homes, the function of an access point is built right into the wireless router supplied by your internet provider...</p>
+  <main class="mx-auto max-w-3xl px-4 py-6">
+    <article class="prose prose-neutral max-w-none">
 
-      <h2>The Limits of a Single Access Point</h2>
-      <p>A standard access point can support up to 30 connected devices within a range of roughly 100 meters. But in practice, walls, building layout, interference, and environmental factors reduce performance...</p>
+      <p class="lead">At Island Integration, we’re constantly amazed at how far networking technology has come. A couple of decades ago, connecting meant long cables and dial‑up frustrations. Today we expect instant, wireless access everywhere — from homes to offices, yachts, and public spaces.</p>
 
-      <h2>Why Businesses and Estates Rely on Access Points</h2>
-      <p>In professional environments, wireless access points connect devices into a Local Area Network (LAN)...</p>
+      <div class="callout p-4 rounded-xl mt-6">
+        <strong>Why this matters:</strong> Understanding the role of a <em>wireless access point (WAP)</em> helps you design, upgrade, and troubleshoot networks that feel seamless.
+      </div>
 
-      <h2>Everyday Uses: Wi-Fi Hotspots</h2>
-      <p>Access points aren’t just for homes and businesses—they also power public Wi-Fi...</p>
+      <h2 id="what-is-wap" class="mt-10">What Is a Wireless Access Point?</h2>
+      <p>A <strong>wireless access point</strong> lets Wi‑Fi devices connect to a wired network. In many homes, your ISP’s wireless router combines routing + access point in one box. In larger or higher‑performance properties, we install <strong>dedicated APs</strong> to deliver strong, stable coverage in every room and outdoor area.</p>
+      <p>We deploy <strong>professional‑grade access points</strong> connected by <strong>Ethernet backbones</strong> for low latency and high throughput. APs broadcast Wi‑Fi over radio frequencies so laptops, phones, tablets, TVs, and smart‑home systems can connect securely.</p>
 
-      <h2>Professional Wireless Networking in the Bahamas</h2>
-      <p>From Lyford Cay and Old Fort Bay to Ocean Club Estates and Albany, Island Integration delivers enterprise-grade Wi-Fi design for homes, yachts, and businesses...</p>
+      <h2 id="how-it-works" class="mt-10">How a WAP Works (In Plain English)</h2>
+      <ol class="list-decimal pl-6">
+        <li><strong>Backhaul:</strong> The AP plugs into your network switch or router via Ethernet (or sometimes fiber), giving it a fast path to the internet and other devices.</li>
+        <li><strong>Broadcast:</strong> The AP creates one or more Wi‑Fi networks (SSIDs) on 2.4/5/6 GHz bands.</li>
+        <li><strong>Association:</strong> Your device authenticates (password/802.1X) and joins the AP.</li>
+        <li><strong>Roaming:</strong> In multi‑AP designs, your device moves between APs as you walk, staying on the same SSID for a seamless experience.</li>
+      </ol>
 
-      <p class="mt-6">📞 Contact us today at <a href="tel:+12428209013">+1 (242) 820-9013</a></p>
-      <p>🌐 Visit us at <a href="https://www.island-integration.com">www.island-integration.com</a></p>
+      <h2 id="limits" class="mt-10">The Limits of a Single Access Point</h2>
+      <p>A single AP might theoretically support ~30 devices within ~100 meters, but real‑world performance is constrained by <strong>walls</strong>, <strong>construction materials</strong>, <strong>interference</strong>, and <strong>layout</strong>. That’s why big homes and estates often feel great near the router and frustrating elsewhere.</p>
+      <ul class="list-disc pl-6">
+        <li><strong>Symptoms:</strong> weak signal, low speed, buffering, or random drops in far rooms and patios.</li>
+        <li><strong>Common causes:</strong> concrete/stone walls, mirrored glass, appliances, neighboring Wi‑Fi, and long distances.</li>
+      </ul>
+
+      <h2 id="multi-ap" class="mt-10">When to Use Multiple APs, Mesh, or Repeaters</h2>
+      <p>To eliminate dead zones, we design <strong>multi‑AP networks</strong> with an Ethernet backbone wherever possible (best performance). In select scenarios, we may use <strong>mesh</strong> or <strong>wireless backhaul</strong>, but wired backhaul remains the gold standard for stability and throughput.</p>
+      <ul class="list-disc pl-6">
+        <li><strong>Multiple APs:</strong> Best for large homes, multi‑storey properties, and estates. Supports higher device counts and seamless roaming.</li>
+        <li><strong>Mesh systems:</strong> Useful where wiring is hard; easier setup but lower peak performance vs. Ethernet backhaul.</li>
+        <li><strong>Repeaters/extenders:</strong> Can help in small spots but often halve throughput; we use sparingly.</li>
+      </ul>
+
+      <h2 id="business" class="mt-10">Why Businesses and Estates Rely on APs</h2>
+      <p>Modern LANs are primarily wireless. In offices, hotels, and developments across the Bahamas, access points provide flexible, secure connectivity for laptops, phones, video conferencing, and building automation — without pulling a cable to every desk.</p>
+      <p>For developers and hospitality teams, we implement <strong>seamless roaming</strong> and <strong>guest networks</strong> with the right authentication and VLANs to keep staff systems segmented and secure.</p>
+
+      <h2 id="hotspots" class="mt-10">Everyday Uses: Wi‑Fi Hotspots</h2>
+      <p>Access points also power public Wi‑Fi in coffee shops, marinas, airports, and city centers. We extend the same technology into private estates and luxury residences so streaming, work, and smart‑home control stay reliable indoors and out.</p>
+
+      <h2 id="choosing" class="mt-10">Choosing the Right Setup (Quick Checklist)</h2>
+      <ul class="list-disc pl-6">
+        <li><strong>Coverage plan:</strong> Floor plans, materials, outdoor areas, and outbuildings.</li>
+        <li><strong>Backbone:</strong> Prefer Ethernet/fiber backhaul; use mesh only where wiring isn’t feasible.</li>
+        <li><strong>Roaming:</strong> Consistent SSIDs and controller‑managed handoff for multi‑AP designs.</li>
+        <li><strong>Capacity:</strong> Device counts now and 3–5 year growth.</li>
+        <li><strong>Security:</strong> WPA3 where supported, guest VLANs, and proper firewalling.</li>
+        <li><strong>Power:</strong> PoE switches simplify AP placement and keep racks tidy.</li>
+      </ul>
+
+      <h2 id="bahamas" class="mt-10">Professional Wireless Networking in the Bahamas</h2>
+      <p>From Lyford Cay and Old Fort Bay to Ocean Club Estates and Albany, Island Integration delivers enterprise‑grade Wi‑Fi design for homes, yachts, and businesses. If you’re experiencing weak coverage, drop‑outs, or congestion, we can engineer a custom solution for your property.</p>
+
+      <div class="mt-8 grid grid-cols-1 sm:grid-cols-2 gap-3">
+        <a href="tel:+12428209013" class="rounded-full text-center bg-neutral-900 text-white px-6 py-3">Call +1 (242) 820‑9013</a>
+        <a href="mailto:info@island-integration.com?subject=Networking%20Consultation%20Request" class="rounded-full text-center border border-neutral-900 px-6 py-3">Email our team</a>
+      </div>
+
+      <hr class="my-10 border-neutral-200">
+      <nav class="text-sm flex items-center justify-between">
+        <a href="../blog.html" class="underline underline-offset-4">← Back to Blog</a>
+        <a href="../index.html#services" class="underline underline-offset-4">Explore Services →</a>
+      </nav>
     </article>
   </main>
 
@@ -75,11 +147,37 @@
     <div class="mx-auto max-w-7xl px-4 py-8 text-sm text-neutral-600">© <span id="y"></span> Island Integration • Nassau, Bahamas</div>
   </footer>
 
+  <!-- Scripts: dropdown, reveal, header shadow -->
   <script>
+  (function(){
+    const DELAY=120;
+    function initDropdown(root){
+      if(!root) return;
+      const btn=root.querySelector('button[aria-haspopup="true"]');
+      let closeTO=null;
+      const open=()=>{clearTimeout(closeTO);root.classList.add('open');btn?.setAttribute('aria-expanded','true');};
+      const close=()=>{clearTimeout(closeTO);root.classList.remove('open');btn?.setAttribute('aria-expanded','false');};
+      const delayedClose=()=>{clearTimeout(closeTO);closeTO=setTimeout(close,DELAY);};
+      root.addEventListener('mouseenter',open);
+      root.addEventListener('mouseleave',delayedClose);
+      btn?.addEventListener('click',(e)=>{e.stopPropagation();root.classList.contains('open')?close():open();});
+      document.addEventListener('click',(e)=>{ if(!root.contains(e.target)) close(); });
+      document.addEventListener('keydown',(e)=>{ if(e.key==='Escape') close(); });
+    }
+    document.querySelectorAll('.nav-about').forEach(initDropdown);
+
+    // year
     document.getElementById('y').textContent = new Date().getFullYear();
+
     // reveal
     const io=new IntersectionObserver((es)=>es.forEach(e=>e.target.classList.toggle('is-in',e.isIntersecting)),{threshold:0.15});
     document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+
+    // header shadow
+    const header=document.getElementById('site-header');
+    const tweak=()=>{(window.scrollY||0)>4?header.classList.add('sticky-shadow'):header.classList.remove('sticky-shadow');};
+    window.addEventListener('scroll',tweak,{passive:true}); tweak();
+  })();
   </script>
 </body>
 </html>
