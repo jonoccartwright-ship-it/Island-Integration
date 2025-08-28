@@ -28,6 +28,13 @@
     .nav-about.open .dropdown-panel{visibility:visible;opacity:1;transform:scale(1);pointer-events:auto}
     .nav-about:not(.open) .dropdown-panel{opacity:0;transform:scale(.98);pointer-events:none;visibility:hidden}
     h2.section-title{font-size:1.75rem;line-height:1.3;font-weight:700;margin-top:2.5rem;margin-bottom:1rem;color:#111827}
+    /* Blog-only hero: background image with dark scrim + centered panel for legibility */
+    .hero-banner{position:relative;min-height:360px}
+    @media(min-width:768px){.hero-banner{min-height:460px}}
+    .hero-media{position:absolute;inset:0;background-position:center;background-size:cover;background-repeat:no-repeat}
+    .hero-scrim-strong{position:absolute;inset:0;background:radial-gradient(1200px 520px at 50% 35%, rgba(0,0,0,.55), transparent 70%),linear-gradient(to top, rgba(0,0,0,.65), rgba(0,0,0,.25) 45%, rgba(0,0,0,.15) 70%, rgba(0,0,0,0))}
+    .hero-panel{position:relative;margin-left:auto;margin-right:auto;max-width:56rem;border-radius:1.25rem;padding:1.25rem 1rem;background:rgba(0,0,0,.55);backdrop-filter:blur(6px);box-shadow:0 10px 30px rgba(0,0,0,.25)}
+    @media(min-width:768px){.hero-panel{padding:1.75rem 1.5rem}}
   </style>
 </head>
 <body class="bg-white text-neutral-900 selection:bg-black selection:text-white">
@@ -55,20 +62,19 @@
     </div>
   </header>
 
-  <!-- Post header / hero -->
-  <section class="relative overflow-hidden">
-    <div class="absolute inset-0 -z-10">
-      <img src="../public/blog/wireless-access-point.jpg" alt="Wireless access point in modern home" class="w-full h-72 md:h-[420px] object-cover">
-      <div class="absolute inset-0" style="background: linear-gradient(to top, rgba(255,255,255,0) 35%, rgba(255,255,255,.65));"></div>
-    </div>
-    <div class="mx-auto max-w-4xl px-4 pt-24 md:pt-40 pb-8">
-      <div class="reveal">
-        <a href="../blog.html" class="inline-flex items-center gap-2 text-sm text-neutral-700 hover:opacity-70">
+  <!-- Post header / hero (blog-only improved design) -->
+  <section class="relative overflow-hidden hero-banner">
+    <div class="hero-media" style="background-image:url('../public/blog/wireless-access-point.jpg')"></div>
+    <div class="hero-scrim-strong"></div>
+
+    <div class="mx-auto max-w-4xl px-4 pt-20 md:pt-28 pb-8">
+      <div class="reveal hero-panel text-white text-center">
+        <a href="../blog.html" class="inline-flex items-center gap-2 text-xs md:text-sm text-white/80 hover:text-white mb-2">
           <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5" viewBox="0 0 20 20" fill="currentColor"><path d="M12.293 15.707a1 1 0 010-1.414L15.586 11H5a1 1 0 110-2h10.586l-3.293-3.293a1 1 0 111.414-1.414l5 5a1 1 0 010 1.414l-5 5a1 1 0 01-1.414 0z"/></svg>
           Back to Blog
         </a>
-        <h1 class="mt-4 text-3xl md:text-5xl font-bold leading-tight">How Does a Wireless Access Point Work?</h1>
-        <div class="mt-3 text-sm text-neutral-600">Networking • <time datetime="2025-08-27">Aug 27, 2025</time> • ~5 min read</div>
+        <h1 class="mt-1 text-3xl md:text-5xl font-bold leading-tight drop-shadow-[0_6px_18px_rgba(0,0,0,.35)]">How Does a Wireless Access Point Work?</h1>
+        <div class="mt-2 text-sm md:text-base text-white/85">Networking • <time datetime="2025-08-27">Aug 27, 2025</time> • ~5 min read</div>
       </div>
     </div>
   </section>
