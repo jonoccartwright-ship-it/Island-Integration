@@ -1,178 +1,74 @@
 <!doctype html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Island Integration Blog | Smart Home & Home Automation in The Bahamas</title>
-  <meta name="description" content="Guides and insights on home automation in Nassau & the Bahamas: Control4, Wi-Fi, lighting control, home cinema, security, and more." />
-  <link rel="icon" href="public/logo.png" />
-  <link rel="canonical" href="https://www.island-integration.com/blog.html" />
-  <meta property="og:title" content="Island Integration Blog — Smart Home Automation in The Bahamas" />
-  <meta property="og:description" content="How-tos and ideas: Control4, lighting, Wi-Fi, security, and cinema for Bahamian properties." />
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://www.island-integration.com/blog.html" />
-  <meta property="og:image" content="https://www.island-integration.com/public/hero-poster.jpg" />
+<article class="reveal card rounded-2xl border border-neutral-200 overflow-hidden bg-white">
+<a href="posts/cinema-basics.html"><img src="public/blog/cinema-basics.jpg" alt="Home cinema projector and speakers" class="w-full h-48 object-cover"></a>
+<div class="p-5">
+<a href="posts/cinema-basics.html" class="block"><h2 class="font-semibold">Home Cinema Basics: Screens, Sound & Seating</h2></a>
+<p class="mt-2 text-sm text-neutral-600">The essentials for cinematic experiences: screen size, speaker layouts, and acoustic treatments.</p>
+<div class="mt-4 flex items-center justify-between text-xs text-neutral-500"><span>Home Cinema</span><time datetime="2025-08-27">Aug 27, 2025</time></div>
+</div>
+</article>
+</div>
 
-  <script src="https://cdn.tailwindcss.com"></script>
-  <style>
-    html{scroll-behavior:smooth}
-    .reveal{opacity:0;transform:translateY(24px) scale(.985);transition:opacity .6s ease,transform .6s ease}
-    .reveal.is-in{opacity:1;transform:translateY(0) scale(1)}
-    .glass{background:rgba(255,255,255,.72);backdrop-filter:blur(8px)}
-    .sticky-shadow{box-shadow:0 8px 24px rgba(0,0,0,.06)}
-    .card{transition:transform .35s ease,box-shadow .3s ease}
-    .card:hover{transform:translateY(-3px);box-shadow:0 12px 32px rgba(0,0,0,.08)}
-    .hero-scrim{position:absolute;inset:-24px;background:
-      radial-gradient(1200px 480px at 50% 40%, rgba(0,0,0,.40), transparent 70%),
-      radial-gradient(800px 400px at 50% 40%, rgba(0,0,0,.30), transparent 60%);
-      pointer-events:none;border-radius:24px}
-    .dropdown-panel{transition:opacity .16s ease,transform .16s ease;transform-origin:top center}
-    .nav-about.open .dropdown-panel{visibility:visible;opacity:1;transform:scale(1);pointer-events:auto}
-    .nav-about:not(.open) .dropdown-panel{opacity:0;transform:scale(.98);pointer-events:none;visibility:hidden}
-    .nav-about button{-webkit-tap-highlight-color:transparent}
-  </style>
-</head>
-<body class="bg-white text-neutral-900 selection:bg-black selection:text-white">
 
-  <!-- Header (with About dropdown) -->
-  <header id="site-header" class="sticky top-0 z-50 border-b border-neutral-200/60 glass">
-    <div class="mx-auto max-w-7xl px-4 py-3 flex items-center justify-center">
-      <nav class="relative flex items-center gap-8 text-sm">
-        <a href="index.html#services" class="hover:opacity-60">Services</a>
-        <a href="index.html#partners" class="hover:opacity-60">Our Partners</a>
-        <a href="index.html#process" class="hover:opacity-60">Process</a>
-        <a href="index.html#contact" class="hover:opacity-60">Contact</a>
-        <div class="nav-about relative">
-          <button class="inline-flex items-center gap-1 hover:opacity-60 font-medium" aria-haspopup="true" aria-expanded="false" aria-controls="about-menu" type="button">
-            About
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5" viewBox="0 0 20 20" fill="currentColor"><path d="M5.23 7.21a.75.75 0 011.06.02L10 11.116l3.71-3.886a.75.75 0 111.08 1.04l-4.25 4.45a.75.75 0 01-1.08 0l-4.25-4.45a.75.75 0 01.02-1.06z"/></svg>
-          </button>
-          <div class="absolute left-1/2 -translate-x-1/2 top-full w-44 h-3"></div>
-          <div id="about-menu" role="menu" class="dropdown-panel invisible opacity-0 scale-95 pointer-events-none absolute left-1/2 -translate-x-1/2 mt-3 min-w-[200px] rounded-xl border border-neutral-200 bg-white shadow-xl py-2 text-sm z-50">
-            <a href="about.html" class="block px-4 py-2 hover:bg-neutral-50" role="menuitem">About Us</a>
-            <a href="blog.html" class="block px-4 py-2 hover:bg-neutral-50" role="menuitem">Blog</a>
-          </div>
-        </div>
-      </nav>
-    </div>
-  </header>
+<!-- Pager (static) -->
+<nav class="reveal mt-10 flex items-center justify-center gap-3 text-sm">
+<span class="px-3 py-1 rounded border border-neutral-200 bg-white">1</span>
+<a class="px-3 py-1 rounded border border-neutral-200 hover:bg-neutral-50" href="#">2</a>
+<a class="px-3 py-1 rounded border border-neutral-200 hover:bg-neutral-50" href="#">Next</a>
+</nav>
+</main>
 
-  <!-- Blog Hero -->
-  <section class="relative overflow-hidden">
-    <div class="absolute inset-0 -z-10">
-      <img src="public/hero-poster.jpg" alt="Bahamas luxury interior" class="w-full h-full object-cover">
-      <div class="absolute inset-0" style="background: linear-gradient(to top, rgba(255,255,255,0) 42%, rgba(255,255,255,.65));"></div>
-    </div>
 
-    <div class="mx-auto max-w-7xl px-4 py-24 md:py-32">
-      <div class="relative max-w-3xl mx-auto reveal">
-        <div class="hero-scrim"></div>
-        <div class="relative text-center">
-          <img src="public/logo.png" alt="Island Integration logo" class="mx-auto h-24 md:h-28 w-auto drop-shadow-[0_6px_24px_rgba(0,0,0,.45)]" />
-          <h1 class="mt-6 text-white text-4xl md:text-5xl font-semibold drop-shadow-[0_6px_18px_rgba(0,0,0,.45)]">Insights & Guides</h1>
-          <p class="mt-3 text-white/90 md:text-lg drop-shadow-[0_3px_12px_rgba(0,0,0,.45)]">
-            Practical advice on Control4, lighting, Wi-Fi, cinema, and security for Bahamian homes.
-          </p>
-        </div>
-      </div>
-    </div>
-  </section>
+<!-- CTA -->
+<section class="mx-auto max-w-7xl px-4 pb-20">
+<div class="reveal rounded-2xl border border-neutral-200 p-6 md:p-10 text-center bg-white">
+<h3 class="text-xl md:text-2xl font-semibold">Have a project in mind?</h3>
+<p class="mt-2 text-neutral-600">Tell us about your property and goals. We’ll help plan the best path.</p>
+<a href="mailto:info@island-integration.com?subject=Consultation%20Request" class="mt-5 inline-block rounded-full bg-neutral-900 text-white px-6 py-3">Connect with us</a>
+</div>
+</section>
 
-  <!-- Filters -->
-  <div class="mx-auto max-w-7xl px-4 mt-6">
-    <div class="reveal flex flex-wrap items-center gap-3 text-sm">
-      <span class="px-3 py-1 rounded-full border border-neutral-200 bg-white">All</span>
-      <span class="px-3 py-1 rounded-full border border-neutral-200 bg-white">Home Automation</span>
-      <span class="px-3 py-1 rounded-full border border-neutral-200 bg-white">Networking</span>
-      <span class="px-3 py-1 rounded-full border border-neutral-200 bg-white">Security</span>
-      <span class="px-3 py-1 rounded-full border border-neutral-200 bg-white">Cinema</span>
-    </div>
-  </div>
 
-  <!-- Blog Grid -->
-  <main class="mx-auto max-w-7xl px-4 py-10">
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-      <article class="reveal card rounded-2xl border border-neutral-200 overflow-hidden bg-white">
-        <a href="posts/home-automation-bahamas.html"><img src="public/blog/home-automation-bahamas.jpg" alt="Smart home scene in Nassau" class="w-full h-48 object-cover"></a>
-        <div class="p-5">
-          <a href="posts/home-automation-bahamas.html" class="block"><h2 class="font-semibold">Home Automation in Nassau: What to Expect</h2></a>
-          <p class="mt-2 text-sm text-neutral-600">Planning Control4, lighting, climate, and audio upgrades for Bahamian homes—what to know first.</p>
-          <div class="mt-4 flex items-center justify-between text-xs text-neutral-500"><span>Home Automation</span><time datetime="2025-08-27">Aug 27, 2025</time></div>
-        </div>
-      </article>
+<!-- Footer -->
+<footer class="border-t border-neutral-200">
+<div class="mx-auto max-w-7xl px-4 py-8 text-sm text-neutral-600">© <span id="y"></span> Island Integration • Nassau, Bahamas</div>
+</footer>
 
-      <article class="reveal card rounded-2xl border border-neutral-200 overflow-hidden bg-white">
-        <a href="posts/wifi-large-villas.html"><img src="public/blog/wifi-large-villas.jpg" alt="Wi-Fi coverage in large villa" class="w-full h-48 object-cover"></a>
-        <div class="p-5">
-          <a href="posts/wifi-large-villas.html" class="block"><h2 class="font-semibold">Wi-Fi That Actually Works in Large Villas</h2></a>
-          <p class="mt-2 text-sm text-neutral-600">Coverage, roaming, and backhaul tips for multi-building properties and waterfront homes.</p>
-          <div class="mt-4 flex items-center justify-between text-xs text-neutral-500"><span>Networking</span><time datetime="2025-08-27">Aug 27, 2025</time></div>
-        </div>
-      </article>
 
-      <article class="reveal card rounded-2xl border border-neutral-200 overflow-hidden bg-white">
-        <a href="posts/cinema-basics.html"><img src="public/blog/cinema-basics.jpg" alt="Home cinema projector and speakers" class="w-full h-48 object-cover"></a>
-        <div class="p-5">
-          <a href="posts/cinema-basics.html" class="block"><h2 class="font-semibold">Home Cinema Basics: Screens, Sound & Seating</h2></a>
-          <p class="mt-2 text-sm text-neutral-600">The essentials for cinematic experiences: screen size, speaker layouts, and acoustic treatments.</p>
-          <div class="mt-4 flex items-center justify-between text-xs text-neutral-500"><span>Home Cinema</span><time datetime="2025-08-27">Aug 27, 2025</time></div>
-        </div>
-      </article>
-    </div>
+<!-- Scripts: dropdown, reveal, header shadow -->
+<script>
+(function(){
+const DELAY=120;
+function initDropdown(root){
+if(!root) return;
+const btn=root.querySelector('button[aria-haspopup="true"]');
+let closeTO=null;
+const open=()=>{clearTimeout(closeTO);root.classList.add('open');btn?.setAttribute('aria-expanded','true');};
+const close=()=>{clearTimeout(closeTO);root.classList.remove('open');btn?.setAttribute('aria-expanded','false');};
+const delayedClose=()=>{clearTimeout(closeTO);closeTO=setTimeout(close,DELAY);};
+root.addEventListener('mouseenter',open);
+root.addEventListener('mouseleave',delayedClose);
+btn?.addEventListener('click',(e)=>{e.stopPropagation();root.classList.contains('open')?close():open();});
+document.addEventListener('click',(e)=>{ if(!root.contains(e.target)) close(); });
+document.addEventListener('keydown',(e)=>{ if(e.key==='Escape') close(); });
+}
+document.querySelectorAll('.nav-about').forEach(initDropdown);
 
-    <!-- Pager (static) -->
-    <nav class="reveal mt-10 flex items-center justify-center gap-3 text-sm">
-      <span class="px-3 py-1 rounded border border-neutral-200 bg-white">1</span>
-      <a class="px-3 py-1 rounded border border-neutral-200 hover:bg-neutral-50" href="#">2</a>
-      <a class="px-3 py-1 rounded border border-neutral-200 hover:bg-neutral-50" href="#">Next</a>
-    </nav>
-  </main>
 
-  <!-- CTA -->
-  <section class="mx-auto max-w-7xl px-4 pb-20">
-    <div class="reveal rounded-2xl border border-neutral-200 p-6 md:p-10 text-center bg-white">
-      <h3 class="text-xl md:text-2xl font-semibold">Have a project in mind?</h3>
-      <p class="mt-2 text-neutral-600">Tell us about your property and goals. We’ll help plan the best path.</p>
-      <a href="mailto:info@island-integration.com?subject=Consultation%20Request" class="mt-5 inline-block rounded-full bg-neutral-900 text-white px-6 py-3">Connect with us</a>
-    </div>
-  </section>
+// year
+document.getElementById('y').textContent = new Date().getFullYear();
 
-  <!-- Footer -->
-  <footer class="border-t border-neutral-200">
-    <div class="mx-auto max-w-7xl px-4 py-8 text-sm text-neutral-600">© <span id="y"></span> Island Integration • Nassau, Bahamas</div>
-  </footer>
 
-  <!-- Scripts: dropdown, reveal, header shadow -->
-  <script>
-  (function(){
-    const DELAY=120;
-    function initDropdown(root){
-      if(!root) return;
-      const btn=root.querySelector('button[aria-haspopup="true"]');
-      let closeTO=null;
-      const open=()=>{clearTimeout(closeTO);root.classList.add('open');btn?.setAttribute('aria-expanded','true');};
-      const close=()=>{clearTimeout(closeTO);root.classList.remove('open');btn?.setAttribute('aria-expanded','false');};
-      const delayedClose=()=>{clearTimeout(closeTO);closeTO=setTimeout(close,DELAY);};
-      root.addEventListener('mouseenter',open);
-      root.addEventListener('mouseleave',delayedClose);
-      btn?.addEventListener('click',(e)=>{e.stopPropagation();root.classList.contains('open')?close():open();});
-      document.addEventListener('click',(e)=>{ if(!root.contains(e.target)) close(); });
-      document.addEventListener('keydown',(e)=>{ if(e.key==='Escape') close(); });
-    }
-    document.querySelectorAll('.nav-about').forEach(initDropdown);
+// reveal
+const io=new IntersectionObserver((es)=>es.forEach(e=>e.target.classList.toggle('is-in',e.isIntersecting)),{threshold:0.15});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
 
-    // year
-    document.getElementById('y').textContent = new Date().getFullYear();
 
-    // reveal-on-scroll
-    const io=new IntersectionObserver((es)=>es.forEach(e=>e.target.classList.toggle('is-in',e.isIntersecting)),{threshold:0.15});
-    document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
-
-    // header shadow
-    const header=document.getElementById('site-header');
-    const tweak=()=>{(window.scrollY||0)>4?header.classList.add('sticky-shadow'):header.classList.remove('sticky-shadow');};
-    window.addEventListener('scroll',tweak,{passive:true}); tweak();
-  })();
-  </script>
+// header shadow
+const header=document.getElementById('site-header');
+const tweak=()=>{(window.scrollY||0)>4?header.classList.add('sticky-shadow'):header.classList.remove('sticky-shadow');};
+window.addEventListener('scroll',tweak,{passive:true}); tweak();
+})();
+</script>
 </body>
 </html>
