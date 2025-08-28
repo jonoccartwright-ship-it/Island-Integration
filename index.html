@@ -46,17 +46,11 @@
     "image": "https://www.island-integration.com/public/hero-poster.jpg",
     "telephone": "+12428209013",
     "email": "info@island-integration.com",
-    "address": {
-      "@type": "PostalAddress",
-      "addressLocality": "Nassau",
-      "addressCountry": "BS"
-    },
+    "address": { "@type": "PostalAddress", "addressLocality": "Nassau", "addressCountry": "BS" },
     "areaServed": ["Nassau", "New Providence", "Bahamas"],
     "priceRange": "$$$",
     "geo": { "@type": "GeoCoordinates", "latitude": 25.0343, "longitude": -77.3963 },
-    "hasOfferCatalog": {
-      "@type": "OfferCatalog",
-      "name": "Smart Home & Automation Services",
+    "hasOfferCatalog": { "@type": "OfferCatalog", "name": "Smart Home & Automation Services",
       "itemListElement": [
         { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Home Automation (Control4)" } },
         { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Lighting Control" } },
@@ -94,49 +88,35 @@
                   radial-gradient(800px 400px at 50% 40%, rgba(0,0,0,.30), transparent 60%);
       pointer-events:none; border-radius:24px;
     }
+    /* Modern dropdown */
+    .dropdown-panel { transition: opacity .16s ease, transform .16s ease; transform-origin: top center; }
+    .nav-about.open .dropdown-panel { visibility: visible; opacity: 1; transform: scale(1); pointer-events: auto; }
+    .nav-about:not(.open) .dropdown-panel { opacity: 0; transform: scale(.98); pointer-events: none; visibility: hidden; }
+    .nav-about button { -webkit-tap-highlight-color: transparent; }
   </style>
 </head>
 <body class="bg-white text-neutral-900 selection:bg-black selection:text-white">
 
-  <!-- Header (centered nav only) -->
+  <!-- Header with About dropdown -->
   <header id="site-header" class="sticky top-0 z-50 border-b border-neutral-200/60 glass">
     <div class="mx-auto max-w-7xl px-4 py-3 flex items-center justify-center">
-<nav class="relative flex items-center gap-8 text-sm">
-  <a href="index.html#services" class="hover:opacity-60">Services</a>
-  <a href="index.html#partners" class="hover:opacity-60">Our Partners</a>
-  <a href="index.html#process" class="hover:opacity-60">Process</a>
-  <a href="index.html#contact" class="hover:opacity-60">Contact</a>
-
-  <!-- About dropdown (modern) -->
-  <div class="nav-about relative">
-    <button
-      class="inline-flex items-center gap-1 hover:opacity-60"
-      aria-haspopup="true"
-      aria-expanded="false"
-      aria-controls="about-menu"
-      type="button"
-    >
-      About
-      <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5" viewBox="0 0 20 20" fill="currentColor">
-        <path d="M5.23 7.21a.75.75 0 011.06.02L10 11.116l3.71-3.886a.75.75 0 111.08 1.04l-4.25 4.45a.75.75 0 01-1.08 0l-4.25-4.45a.75.75 0 01.02-1.06z"/>
-      </svg>
-    </button>
-
-    <!-- hover bridge prevents flicker when moving cursor down -->
-    <div class="absolute left-1/2 -translate-x-1/2 top-full w-44 h-3"></div>
-
-    <div
-      id="about-menu"
-      role="menu"
-      class="dropdown-panel invisible opacity-0 scale-95 pointer-events-none
-             absolute left-1/2 -translate-x-1/2 mt-3 min-w-[200px]
-             rounded-xl border border-neutral-200 bg-white shadow-xl py-2 text-sm z-50"
-    >
-      <a href="about.html" class="block px-4 py-2 hover:bg-neutral-50" role="menuitem">About Us</a>
-      <a href="blog.html" class="block px-4 py-2 hover:bg-neutral-50" role="menuitem">Blog</a>
-    </div>
-  </div>
-</nav>
+      <nav class="relative flex items-center gap-8 text-sm">
+        <a href="#services" class="hover:opacity-60">Services</a>
+        <a href="#partners" class="hover:opacity-60">Our Partners</a>
+        <a href="#process" class="hover:opacity-60">Process</a>
+        <a href="#contact" class="hover:opacity-60">Contact</a>
+        <div class="nav-about relative">
+          <button class="inline-flex items-center gap-1 hover:opacity-60" aria-haspopup="true" aria-expanded="false" aria-controls="about-menu" type="button">
+            About
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5" viewBox="0 0 20 20" fill="currentColor"><path d="M5.23 7.21a.75.75 0 011.06.02L10 11.116l3.71-3.886a.75.75 0 111.08 1.04l-4.25 4.45a.75.75 0 01-1.08 0l-4.25-4.45a.75.75 0 01.02-1.06z"/></svg>
+          </button>
+          <div class="absolute left-1/2 -translate-x-1/2 top-full w-44 h-3"></div>
+          <div id="about-menu" role="menu" class="dropdown-panel invisible opacity-0 scale-95 pointer-events-none absolute left-1/2 -translate-x-1/2 mt-3 min-w-[200px] rounded-xl border border-neutral-200 bg-white shadow-xl py-2 text-sm z-50">
+            <a href="about.html" class="block px-4 py-2 hover:bg-neutral-50" role="menuitem">About Us</a>
+            <a href="blog.html" class="block px-4 py-2 hover:bg-neutral-50" role="menuitem">Blog</a>
+          </div>
+        </div>
+      </nav>
     </div>
   </header>
 
@@ -148,9 +128,8 @@
         <source src="public/hero.mp4" type="video/mp4" />
         <img src="public/hero-poster.jpg" alt="Luxury smart home interior in the Bahamas" />
       </video>
-      <!-- top white fade to lift header; keeps bottom vivid -->
-      <div class="absolute inset-0 pointer-events-none"
-           style="background: linear-gradient(to top, rgba(255,255,255,0) 42%, rgba(255,255,255,0.6));"></div>
+      <!-- top white fade -->
+      <div class="absolute inset-0 pointer-events-none" style="background: linear-gradient(to top, rgba(255,255,255,0) 42%, rgba(255,255,255,0.6));"></div>
     </div>
 
     <div class="mx-auto max-w-7xl px-4 py-28 md:py-40">
@@ -165,9 +144,7 @@
             Control4, networking, AV, lighting, security, and support across the Bahamas.
           </p>
           <div class="mt-8">
-            <a href="#contact" class="btn rounded-full bg-white text-neutral-900 px-7 py-3 font-medium shadow-md">
-              Connect with us
-            </a>
+            <a href="#contact" class="btn rounded-full bg-white text-neutral-900 px-7 py-3 font-medium shadow-md">Connect with us</a>
           </div>
           <p class="mt-6 text-sm text-white/80 max-w-2xl drop-shadow-[0_3px_10px_rgba(0,0,0,.45)]">
             12+ years delivering seamless control, resilient networks, and beautiful audio/visual experiences across Nassau,
@@ -188,7 +165,8 @@
     </div>
 
     <div class="mt-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-      <!-- 1 Lighting Control -->
+      <!-- Cards (9) -->
+      <!-- Lighting Control -->
       <div class="card reveal group rounded-2xl border p-0 overflow-hidden border-neutral-200/70 bg-white/70" data-speed="0.06">
         <div class="aspect-[4/3] w-full overflow-hidden">
           <img loading="lazy" decoding="async" src="public/services/lighting.jpg" alt="Lighting control installation in Nassau Bahamas" class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.03]" />
@@ -204,7 +182,7 @@
         </div>
       </div>
 
-      <!-- 2 Home Cinema -->
+      <!-- Home Cinema -->
       <div class="card reveal group rounded-2xl border p-0 overflow-hidden border-neutral-200/70 bg-white/70" data-speed="0.04">
         <div class="aspect-[4/3] w-full overflow-hidden">
           <img loading="lazy" decoding="async" src="public/services/cinema.jpg" alt="Home cinema design and installation Bahamas" class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.03]" />
@@ -221,7 +199,7 @@
         </div>
       </div>
 
-      <!-- 3 Automated Shading -->
+      <!-- Automated Shading -->
       <div class="card reveal group rounded-2xl border p-0 overflow-hidden border-neutral-200/70 bg-white/70" data-speed="0.05">
         <div class="aspect-[4/3] w-full overflow-hidden">
           <img loading="lazy" decoding="async" src="public/services/shading.jpg" alt="Automated shading and motorized blinds Bahamas" class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.03]" />
@@ -237,7 +215,7 @@
         </div>
       </div>
 
-      <!-- 4 Design -->
+      <!-- Design -->
       <div class="card reveal group rounded-2xl border p-0 overflow-hidden border-neutral-200/70 bg-white/70" data-speed="0.06">
         <div class="aspect-[4/3] w-full overflow-hidden">
           <img loading="lazy" decoding="async" src="public/services/design.jpg" alt="Smart home system design Bahamas" class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.03]" />
@@ -254,7 +232,7 @@
         </div>
       </div>
 
-      <!-- 5 Climate Control -->
+      <!-- Climate Control -->
       <div class="card reveal group rounded-2xl border p-0 overflow-hidden border-neutral-200/70 bg-white/70" data-speed="0.04">
         <div class="aspect-[4/3] w-full overflow-hidden">
           <img loading="lazy" decoding="async" src="public/services/climate.jpg" alt="Smart climate control Nassau Bahamas" class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.03]" />
@@ -271,7 +249,7 @@
         </div>
       </div>
 
-      <!-- 6 Multi-Room TV & Audio -->
+      <!-- Multi-Room TV & Audio -->
       <div class="card reveal group rounded-2xl border p-0 overflow-hidden border-neutral-200/70 bg-white/70" data-speed="0.05">
         <div class="aspect-[4/3] w-full overflow-hidden">
           <img loading="lazy" decoding="async" src="public/services/multiroom.jpg" alt="Multi-room TV and audio distribution Bahamas" class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.03]" />
@@ -288,7 +266,7 @@
         </div>
       </div>
 
-      <!-- 7 Smart Home Security -->
+      <!-- Smart Home Security -->
       <div class="card reveal group rounded-2xl border p-0 overflow-hidden border-neutral-200/70 bg-white/70" data-speed="0.06">
         <div class="aspect-[4/3] w-full overflow-hidden">
           <img loading="lazy" decoding="async" src="public/services/security.jpg" alt="Smart home security and surveillance Bahamas" class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.03]" />
@@ -304,7 +282,7 @@
         </div>
       </div>
 
-      <!-- 8 WiFi & Networking -->
+      <!-- Wi-Fi & Networking -->
       <div class="card reveal group rounded-2xl border p-0 overflow-hidden border-neutral-200/70 bg-white/70" data-speed="0.04">
         <div class="aspect-[4/3] w-full overflow-hidden">
           <img loading="lazy" decoding="async" src="public/services/wifi.jpg" alt="Enterprise-grade Wi-Fi and networking Bahamas" class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.03]" />
@@ -321,7 +299,7 @@
         </div>
       </div>
 
-      <!-- 9 System Support -->
+      <!-- System Support -->
       <div class="card reveal group rounded-2xl border p-0 overflow-hidden border-neutral-200/70 bg-white/70" data-speed="0.05">
         <div class="aspect-[4/3] w-full overflow-hidden">
           <img loading="lazy" decoding="async" src="public/services/support.jpg" alt="Smart home system support and maintenance Bahamas" class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.03]" />
@@ -341,29 +319,18 @@
     </div>
   </section>
 
-  <!-- Our Partners -->
+  <!-- Partners -->
   <section id="partners" class="mx-auto max-w-7xl px-4 py-16">
     <div>
       <h2 class="text-2xl md:text-4xl font-semibold">Our Partners</h2>
       <div class="h-1 w-24 bg-gradient-to-r rounded-full mt-3 from-neutral-900 to-neutral-500"></div>
     </div>
-
     <div class="mt-10 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-6 items-center">
-      <div class="reveal flex items-center justify-center p-4">
-        <img loading="lazy" decoding="async" src="public/partners/bond.jpg" alt="Bond Home logo" class="partner w-auto" />
-      </div>
-      <div class="reveal flex items-center justify-center p-4">
-        <img loading="lazy" decoding="async" src="public/partners/bvd.jpg" alt="BVD International logo" class="partner w-auto" />
-      </div>
-      <div class="reveal flex items-center justify-center p-4">
-        <img loading="lazy" decoding="async" src="public/partners/control4.jpg" alt="Control4 logo" class="partner w-auto" />
-      </div>
-      <div class="reveal flex items-center justify-center p-4">
-        <img loading="lazy" decoding="async" src="public/partners/origin.jpg" alt="Origin Acoustics logo" class="partner w-auto" />
-      </div>
-      <div class="reveal flex items-center justify-center p-4">
-        <img loading="lazy" decoding="async" src="public/partners/snapone.jpg" alt="Snap One logo" class="partner w-auto" />
-      </div>
+      <div class="reveal flex items-center justify-center p-4"><img loading="lazy" decoding="async" src="public/partners/bond.jpg" alt="Bond Home logo" class="partner w-auto" /></div>
+      <div class="reveal flex items-center justify-center p-4"><img loading="lazy" decoding="async" src="public/partners/bvd.jpg" alt="BVD International logo" class="partner w-auto" /></div>
+      <div class="reveal flex items-center justify-center p-4"><img loading="lazy" decoding="async" src="public/partners/control4.jpg" alt="Control4 logo" class="partner w-auto" /></div>
+      <div class="reveal flex items-center justify-center p-4"><img loading="lazy" decoding="async" src="public/partners/origin.jpg" alt="Origin Acoustics logo" class="partner w-auto" /></div>
+      <div class="reveal flex items-center justify-center p-4"><img loading="lazy" decoding="async" src="public/partners/snapone.jpg" alt="Snap One logo" class="partner w-auto" /></div>
     </div>
   </section>
 
@@ -374,26 +341,10 @@
       <div class="h-1 w-24 bg-gradient-to-r rounded-full mt-3 from-neutral-900 to-neutral-500"></div>
     </div>
     <ol class="mt-10 grid grid-cols-1 md:grid-cols-4 gap-6 text-sm">
-      <li class="reveal rounded-2xl border border-neutral-200 p-5">
-        <div class="text-xs text-neutral-500">Step 1</div>
-        <div class="mt-1 font-semibold">Consultation</div>
-        <p class="mt-2 text-neutral-600">Site walk-through or plans review. We listen, measure, and define goals.</p>
-      </li>
-      <li class="reveal rounded-2xl border border-neutral-200 p-5">
-        <div class="text-xs text-neutral-500">Step 2</div>
-        <div class="mt-1 font-semibold">Design & Estimate</div>
-        <p class="mt-2 text-neutral-600">Clear scope, equipment list, and timeline with mobilization details.</p>
-      </li>
-      <li class="reveal rounded-2xl border border-neutral-200 p-5">
-        <div class="text-xs text-neutral-500">Step 3</div>
-        <div class="mt-1 font-semibold">Installation</div>
-        <p class="mt-2 text-neutral-600">Clean, labeled wiring; racks and devices documented and tested.</p>
-      </li>
-      <li class="reveal rounded-2xl border border-neutral-200 p-5">
-        <div class="text-xs text-neutral-500">Step 4</div>
-        <div class="mt-1 font-semibold">Support</div>
-        <p class="mt-2 text-neutral-600">Remote monitoring, on-site care, and upgrade paths.</p>
-      </li>
+      <li class="reveal rounded-2xl border border-neutral-200 p-5"><div class="text-xs text-neutral-500">Step 1</div><div class="mt-1 font-semibold">Consultation</div><p class="mt-2 text-neutral-600">Site walk-through or plans review. We listen, measure, and define goals.</p></li>
+      <li class="reveal rounded-2xl border border-neutral-200 p-5"><div class="text-xs text-neutral-500">Step 2</div><div class="mt-1 font-semibold">Design & Estimate</div><p class="mt-2 text-neutral-600">Clear scope, equipment list, and timeline with mobilization details.</p></li>
+      <li class="reveal rounded-2xl border border-neutral-200 p-5"><div class="text-xs text-neutral-500">Step 3</div><div class="mt-1 font-semibold">Installation</div><p class="mt-2 text-neutral-600">Clean, labeled wiring; racks and devices documented and tested.</p></li>
+      <li class="reveal rounded-2xl border border-neutral-200 p-5"><div class="text-xs text-neutral-500">Step 4</div><div class="mt-1 font-semibold">Support</div><p class="mt-2 text-neutral-600">Remote monitoring, on-site care, and upgrade paths.</p></li>
     </ol>
   </section>
 
@@ -402,123 +353,76 @@
     <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
       <div class="reveal">
         <h2 class="text-2xl md:text-4xl font-semibold">Let’s plan your project</h2>
-        <p class="mt-4 text-sm text-neutral-600 max-w-md">
-          Call <a href="tel:+12428209013" class="underline">+1 (242) 820-9013</a> or email <a href="mailto:info@island-integration.com" class="underline">info@island-integration.com</a>.
-        </p>
+        <p class="mt-4 text-sm text-neutral-600 max-w-md">Call <a href="tel:+12428209013" class="underline">+1 (242) 820-9013</a> or email <a href="mailto:info@island-integration.com" class="underline">info@island-integration.com</a>.</p>
         <div class="mt-6 text-sm text-neutral-600">We typically reply the same day.</div>
       </div>
-
-      <!-- Mailto-based form (GitHub Pages friendly) -->
-      <form
-        class="reveal rounded-2xl border p-6 shadow-sm border-neutral-200 bg-white"
-        onsubmit="event.preventDefault(); (function(form){
-          const name=form.name.value||'';
-          const email=form.email.value||'';
-          const phone=form.phone.value||'';
-          const message=form.message.value||'';
-          const subject=encodeURIComponent(`Consultation Request from ${name||'Website'}`);
-          const body=encodeURIComponent(`Name: ${name}\nEmail: ${email}\nPhone: ${phone}\n\nMessage:\n${message}`);
-          window.location.href=`mailto:info@island-integration.com?subject=${subject}&body=${body}`;
-        })(this);"
-      >
+      <form class="reveal rounded-2xl border p-6 shadow-sm border-neutral-200 bg-white"
+        onsubmit="event.preventDefault();(function(f){const n=f.name.value||'';const e=f.email.value||'';const p=f.phone.value||'';const m=f.message.value||'';const s=encodeURIComponent(`Consultation Request from ${n||'Website'}`);const b=encodeURIComponent(`Name: ${n}\nEmail: ${e}\nPhone: ${p}\n\nMessage:\n${m}`);window.location.href=`mailto:info@island-integration.com?subject=${s}&body=${b}`;})(this);">
         <div class="grid grid-cols-1 gap-4">
-          <label class="text-sm">Name
-            <input name="name" required class="mt-1 w-full rounded-lg border px-3 py-2 outline-none focus:ring-2 border-neutral-300 focus:ring-neutral-900" />
-          </label>
-          <label class="text-sm">Email
-            <input name="email" type="email" required class="mt-1 w-full rounded-lg border px-3 py-2 outline-none focus:ring-2 border-neutral-300 focus:ring-neutral-900" />
-          </label>
-          <label class="text-sm">Phone
-            <input name="phone" class="mt-1 w-full rounded-lg border px-3 py-2 outline-none focus:ring-2 border-neutral-300 focus:ring-neutral-900" />
-          </label>
-          <label class="text-sm">Message
-            <textarea name="message" rows="4" class="mt-1 w-full rounded-lg border px-3 py-2 outline-none focus:ring-2 border-neutral-300 focus:ring-neutral-900" placeholder="Tell us about your project..."></textarea>
-          </label>
+          <label class="text-sm">Name <input name="name" required class="mt-1 w-full rounded-lg border px-3 py-2 outline-none focus:ring-2 border-neutral-300 focus:ring-neutral-900" /></label>
+          <label class="text-sm">Email <input name="email" type="email" required class="mt-1 w-full rounded-lg border px-3 py-2 outline-none focus:ring-2 border-neutral-300 focus:ring-neutral-900" /></label>
+          <label class="text-sm">Phone <input name="phone" class="mt-1 w-full rounded-lg border px-3 py-2 outline-none focus:ring-2 border-neutral-300 focus:ring-neutral-900" /></label>
+          <label class="text-sm">Message <textarea name="message" rows="4" class="mt-1 w-full rounded-lg border px-3 py-2 outline-none focus:ring-2 border-neutral-300 focus:ring-neutral-900" placeholder="Tell us about your project..."></textarea></label>
           <div class="flex items-center gap-3">
             <button type="submit" class="btn rounded-full bg-neutral-900 text-white px-6 py-3">Send Email</button>
             <a href="mailto:info@island-integration.com?subject=Consultation%20Request" class="text-sm underline">Or open your mail app</a>
           </div>
-          <p class="text-xs text-neutral-500">
-            Submitting opens your email app with a pre-filled message. (No backend needed on GitHub Pages.)
-          </p>
+          <p class="text-xs text-neutral-500">Submitting opens your email app with a pre-filled message. (No backend needed on GitHub Pages.)</p>
         </div>
       </form>
     </div>
   </section>
 
   <!-- Floating CTA -->
-  <a href="mailto:info@island-integration.com?subject=Consultation%20Request"
-     target="_top" rel="noopener noreferrer"
-     class="hidden md:inline-flex fixed bottom-6 right-6 rounded-full bg-neutral-900 text-white px-5 py-3 shadow-lg"
-     title="Email us">Connect with us</a>
+  <a href="mailto:info@island-integration.com?subject=Consultation%20Request" target="_top" rel="noopener noreferrer" class="hidden md:inline-flex fixed bottom-6 right-6 rounded-full bg-neutral-900 text-white px-5 py-3 shadow-lg" title="Email us">Connect with us</a>
   <a href="tel:+12428209013" class="md:hidden fixed bottom-6 right-6 rounded-full bg-neutral-900 text-white px-5 py-3 shadow-lg">Call Now</a>
 
-  <!-- Scripts: reveal + hero parallax + services parallax + header shadow -->
+  <!-- Scripts: dropdown, reveal, parallax, header shadow -->
   <script>
-    (function () {
-      // Replayable reveal-on-scroll
-      const io = new IntersectionObserver((entries) => {
-        entries.forEach((e) => e.target.classList.toggle('is-in', e.isIntersecting));
-      }, { threshold: 0.15 });
-      document.querySelectorAll('.reveal').forEach((el) => io.observe(el));
+  (function(){
+    const DELAY=120;
+    function initDropdown(root){
+      if(!root) return;
+      const btn=root.querySelector('button[aria-haspopup="true"]');
+      let closeTO=null;
+      const open=()=>{clearTimeout(closeTO);root.classList.add('open');btn?.setAttribute('aria-expanded','true');};
+      const close=()=>{clearTimeout(closeTO);root.classList.remove('open');btn?.setAttribute('aria-expanded','false');};
+      const delayedClose=()=>{clearTimeout(closeTO);closeTO=setTimeout(close,DELAY);};
+      root.addEventListener('mouseenter',open);
+      root.addEventListener('mouseleave',delayedClose);
+      btn?.addEventListener('click',(e)=>{e.stopPropagation();root.classList.contains('open')?close():open();});
+      document.addEventListener('click',(e)=>{ if(!root.contains(e.target)) close(); });
+      document.addEventListener('keydown',(e)=>{ if(e.key==='Escape') close(); });
+    }
+    document.querySelectorAll('.nav-about').forEach(initDropdown);
 
-      // Hero parallax (both directions)
-      const hero = document.getElementById('hero-layer');
-      const onScrollHero = () => {
-        const y = window.scrollY || 0;
-        const translate = Math.min(y * 0.15, 240);
-        const scale = 1 + Math.min(y / 4000, 0.08);
-        const opacity = Math.max(1 - y / 1200, 0.82);
-        hero.style.transform = `translateY(${translate}px) scale(${scale})`;
-        hero.style.opacity = String(opacity);
-      };
+    // Reveal-on-scroll
+    const io=new IntersectionObserver((es)=>es.forEach(e=>e.target.classList.toggle('is-in',e.isIntersecting)),{threshold:0.15});
+    document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
 
-      // Services parallax cards
-      const cards = Array.from(document.querySelectorAll('.card'));
-      const vh = () => Math.max(document.documentElement.clientHeight, window.innerHeight || 0);
-      let ticking = false;
-      const onScrollServices = () => {
-        if (ticking) return;
-        ticking = true;
-        requestAnimationFrame(() => {
-          const h = vh();
-          for (const card of cards) {
-            const rect = card.getBoundingClientRect();
-            const mid = rect.top + rect.height / 2;
-            const dist = (mid - h / 2);
-            const speed = parseFloat(card.dataset.speed || '0.05');
-            const translateY = dist * speed;
-            const fade = 1 - Math.min(Math.abs(dist) / (h * 0.9), 0.35);
-            const scale = 1 - Math.min(Math.abs(dist) / (h * 3.5), 0.02);
-            card.style.transform = `translateY(${translateY.toFixed(1)}px) scale(${scale.toFixed(3)})`;
-            card.style.opacity = fade.toFixed(3);
-          }
-          ticking = false;
-        });
-      };
+    // Hero parallax
+    const hero=document.getElementById('hero-layer');
+    const onScrollHero=()=>{const y=window.scrollY||0;const t=Math.min(y*.15,240);const s=1+Math.min(y/4000,.08);const o=Math.max(1-y/1200,.82);hero.style.transform=`translateY(${t}px) scale(${s})`;hero.style.opacity=String(o);};
 
-      // Header shadow on scroll
-      const header = document.getElementById('site-header');
-      const tweakHeader = () => {
-        if ((window.scrollY || 0) > 4) header.classList.add('sticky-shadow');
-        else header.classList.remove('sticky-shadow');
-      };
+    // Services parallax cards
+    const cards=[...document.querySelectorAll('.card')];
+    const vh=()=>Math.max(document.documentElement.clientHeight,window.innerHeight||0);
+    let ticking=false;
+    const onScrollServices=()=>{if(ticking) return;ticking=true;requestAnimationFrame(()=>{const h=vh();for(const card of cards){const r=card.getBoundingClientRect();const mid=r.top+r.height/2;const dist=(mid-h/2);const speed=parseFloat(card.dataset.speed||'0.05');const y=dist*speed;const fade=1-Math.min(Math.abs(dist)/(h*.9),.35);const sc=1-Math.min(Math.abs(dist)/(h*3.5),.02);card.style.transform=`translateY(${y.toFixed(1)}px) scale(${sc.toFixed(3)})`;card.style.opacity=fade.toFixed(3);}ticking=false;});};
 
-      // Bind
-      window.addEventListener('scroll', onScrollHero, { passive: true });
-      window.addEventListener('scroll', onScrollServices, { passive: true });
-      window.addEventListener('scroll', tweakHeader, { passive: true });
-      window.addEventListener('resize', onScrollServices, { passive: true });
+    // Header shadow
+    const header=document.getElementById('site-header');
+    const tweakHeader=()=>{(window.scrollY||0)>4?header.classList.add('sticky-shadow'):header.classList.remove('sticky-shadow');};
 
-      // Init
-      onScrollHero(); onScrollServices(); tweakHeader();
+    window.addEventListener('scroll',onScrollHero,{passive:true});
+    window.addEventListener('scroll',onScrollServices,{passive:true});
+    window.addEventListener('scroll',tweakHeader,{passive:true});
+    window.addEventListener('resize',onScrollServices,{passive:true});
+    onScrollHero();onScrollServices();tweakHeader();
 
-      // Respect prefers-reduced-motion: remove video & keep poster
-      if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-        const v = document.querySelector('#hero-layer video');
-        if (v) v.remove();
-      }
-    })();
+    // reduced motion: remove video
+    if(window.matchMedia('(prefers-reduced-motion: reduce)').matches){const v=document.querySelector('#hero-layer video'); if(v) v.remove();}
+  })();
   </script>
 </body>
 </html>
