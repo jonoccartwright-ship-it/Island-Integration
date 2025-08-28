@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>How Does a Wireless Access Point Work? | Island Integration Blog</title>
+  <meta name="description" content="Learn how wireless access points extend Wi-Fi coverage in homes, estates, and businesses across the Bahamas. Island Integration explains how WAPs work and why they matter." />
+  <link rel="icon" href="../public/logo.png" />
+  <link rel="canonical" href="https://www.island-integration.com/posts/wireless-access-point.html" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    html{scroll-behavior:smooth}
+    .reveal{opacity:0;transform:translateY(24px);transition:opacity .6s ease,transform .6s ease}
+    .reveal.is-in{opacity:1;transform:translateY(0)}
+    .glass{background:rgba(255,255,255,.72);backdrop-filter:blur(8px)}
+    .sticky-shadow{box-shadow:0 8px 24px rgba(0,0,0,.06)}
+    .dropdown-panel{transition:opacity .16s ease,transform .16s ease;transform-origin:top center}
+    .nav-about.open .dropdown-panel{visibility:visible;opacity:1;transform:scale(1);pointer-events:auto}
+    .nav-about:not(.open) .dropdown-panel{opacity:0;transform:scale(.98);pointer-events:none;visibility:hidden}
+  </style>
+</head>
+<body class="bg-white text-neutral-900 selection:bg-black selection:text-white">
+
+  <!-- Shared header -->
+  <header id="site-header" class="sticky top-0 z-50 border-b border-neutral-200/60 glass">
+    <div class="mx-auto max-w-7xl px-4 py-3 flex items-center justify-center">
+      <nav class="relative flex items-center gap-8 text-sm">
+        <a href="../index.html#services" class="hover:opacity-60">Services</a>
+        <a href="../index.html#partners" class="hover:opacity-60">Our Partners</a>
+        <a href="../index.html#process" class="hover:opacity-60">Process</a>
+        <a href="../index.html#contact" class="hover:opacity-60">Contact</a>
+        <div class="nav-about relative">
+          <button class="inline-flex items-center gap-1 hover:opacity-60" type="button">
+            About
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5" viewBox="0 0 20 20" fill="currentColor"><path d="M5.23 7.21a.75.75 0 011.06.02L10 11.116l3.71-3.886a.75.75 0 111.08 1.04l-4.25 4.45a.75.75 0 01-1.08 0l-4.25-4.45a.75.75 0 01.02-1.06z"/></svg>
+          </button>
+          <div class="absolute left-1/2 -translate-x-1/2 top-full w-44 h-3"></div>
+          <div class="dropdown-panel absolute left-1/2 -translate-x-1/2 mt-3 min-w-[200px] rounded-xl border border-neutral-200 bg-white shadow-xl py-2 text-sm z-50">
+            <a href="../about.html" class="block px-4 py-2 hover:bg-neutral-50">About Us</a>
+            <a href="../blog.html" class="block px-4 py-2 hover:bg-neutral-50">Blog</a>
+          </div>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Post body -->
+  <main class="mx-auto max-w-3xl px-4 py-16">
+    <article class="prose prose-neutral">
+      <h1 class="text-3xl md:text-4xl font-semibold mb-6">How Does a Wireless Access Point Work?</h1>
+      <p>At Island Integration, we’re constantly amazed at how far networking technology has come. Just a couple of decades ago, connecting devices to the internet meant running long cables or dealing with dial-up frustrations. Today, we expect instant, wireless access everywhere—from our homes to offices, yachts, and even public spaces.</p>
+      
+      <h2>What is a Wireless Access Point?</h2>
+      <p>A wireless access point is a device that allows Wi-Fi-enabled devices to connect to a wired network. In most homes, the function of an access point is built right into the wireless router supplied by your internet provider...</p>
+
+      <h2>The Limits of a Single Access Point</h2>
+      <p>A standard access point can support up to 30 connected devices within a range of roughly 100 meters. But in practice, walls, building layout, interference, and environmental factors reduce performance...</p>
+
+      <h2>Why Businesses and Estates Rely on Access Points</h2>
+      <p>In professional environments, wireless access points connect devices into a Local Area Network (LAN)...</p>
+
+      <h2>Everyday Uses: Wi-Fi Hotspots</h2>
+      <p>Access points aren’t just for homes and businesses—they also power public Wi-Fi...</p>
+
+      <h2>Professional Wireless Networking in the Bahamas</h2>
+      <p>From Lyford Cay and Old Fort Bay to Ocean Club Estates and Albany, Island Integration delivers enterprise-grade Wi-Fi design for homes, yachts, and businesses...</p>
+
+      <p class="mt-6">📞 Contact us today at <a href="tel:+12428209013">+1 (242) 820-9013</a></p>
+      <p>🌐 Visit us at <a href="https://www.island-integration.com">www.island-integration.com</a></p>
+    </article>
+  </main>
+
+  <!-- Footer -->
+  <footer class="border-t border-neutral-200">
+    <div class="mx-auto max-w-7xl px-4 py-8 text-sm text-neutral-600">© <span id="y"></span> Island Integration • Nassau, Bahamas</div>
+  </footer>
+
+  <script>
+    document.getElementById('y').textContent = new Date().getFullYear();
+    // reveal
+    const io=new IntersectionObserver((es)=>es.forEach(e=>e.target.classList.toggle('is-in',e.isIntersecting)),{threshold:0.15});
+    document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+  </script>
+</body>
+</html>
