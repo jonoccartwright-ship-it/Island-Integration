@@ -1,1 +1,184 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>How Does a Smart Home Work? | Island Integration Blog</title>
+  <meta name="description" content="Smart home automation explained: lighting, climate, security, entertainment, and Control4 scene-based control. Practical, reader-friendly guide by Island Integration." />
+  <link rel="icon" href="../public/logo.png" />
+  <link rel="canonical" href="https://www.island-integration.com/posts/smart-home-basics.html" />
+  <meta property="og:title" content="How Does a Smart Home Work?" />
+  <meta property="og:description" content="Understand the core features and benefits of modern smart homes—lighting, climate, security, entertainment, and the Control4 hub." />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://www.island-integration.com/posts/smart-home-basics.html" />
+  <meta property="og:image" content="https://www.island-integration.com/public/blog/smart-home-basics.jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
 
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    html{scroll-behavior:smooth}
+    .reveal{opacity:0;transform:translateY(18px) scale(.985);transition:opacity .55s ease,transform .55s ease}
+    .reveal.is-in{opacity:1;transform:translateY(0) scale(1)}
+    .glass{background:rgba(255,255,255,.72);backdrop-filter:blur(8px)}
+    .sticky-shadow{box-shadow:0 8px 24px rgba(0,0,0,.06)}
+    .prose p{margin-top:0.75rem;margin-bottom:0.75rem}
+    .lead{font-size:1.125rem;line-height:1.7}
+    .callout{border-left:4px solid #0a0a0a;background:#fafafa}
+    .dropdown-panel{transition:opacity .16s ease,transform .16s ease;transform-origin:top center}
+    .nav-about.open .dropdown-panel{visibility:visible;opacity:1;transform:scale(1);pointer-events:auto}
+    .nav-about:not(.open) .dropdown-panel{opacity:0;transform:scale(.98);pointer-events:none;visibility:hidden}
+    h2.section-title{font-size:1.75rem;line-height:1.3;font-weight:700;margin-top:2.5rem;margin-bottom:1rem;color:#111827}
+    /* Blog-only hero style (standardized) */
+    .hero-banner{position:relative;min-height:360px}
+    @media(min-width:768px){.hero-banner{min-height:460px}}
+    .hero-media{position:absolute;inset:0;background-position:center;background-size:cover;background-repeat:no-repeat}
+    .hero-scrim-strong{position:absolute;inset:0;background:radial-gradient(1200px 520px at 50% 35%, rgba(0,0,0,.55), transparent 70%),linear-gradient(to top, rgba(0,0,0,.65), rgba(0,0,0,.25) 45%, rgba(0,0,0,.15) 70%, rgba(0,0,0,0))}
+    .hero-panel{position:relative;margin-left:auto;margin-right:auto;max-width:56rem;border-radius:1.25rem;padding:1.25rem 1rem;background:rgba(0,0,0,.55);backdrop-filter:blur(6px);box-shadow:0 10px 30px rgba(0,0,0,.25)}
+    @media(min-width:768px){.hero-panel{padding:1.75rem 1.5rem}}
+  </style>
+</head>
+<body class="bg-white text-neutral-900 selection:bg-black selection:text-white">
+
+  <!-- Shared header -->
+  <header id="site-header" class="sticky top-0 z-50 border-b border-neutral-200/60 glass">
+    <div class="mx-auto max-w-7xl px-4 py-3 flex items-center justify-center">
+      <nav class="relative flex items-center gap-8 text-sm">
+        <a href="../index.html#services" class="hover:opacity-60">Services</a>
+        <a href="../index.html#partners" class="hover:opacity-60">Our Partners</a>
+        <a href="../index.html#process" class="hover:opacity-60">Process</a>
+        <a href="../index.html#contact" class="hover:opacity-60">Contact</a>
+        <div class="nav-about relative">
+          <button class="inline-flex items-center gap-1 hover:opacity-60" aria-haspopup="true" aria-expanded="false" aria-controls="about-menu" type="button">
+            About
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5" viewBox="0 0 20 20" fill="currentColor"><path d="M5.23 7.21a.75.75 0 011.06.02L10 11.116l3.71-3.886a.75.75 0 111.08 1.04l-4.25 4.45a.75.75 0 01-1.08 0l-4.25-4.45a.75.75 0 01.02-1.06z"/></svg>
+          </button>
+          <div class="absolute left-1/2 -translate-x-1/2 top-full w-44 h-3"></div>
+          <div id="about-menu" role="menu" class="dropdown-panel invisible opacity-0 scale-95 pointer-events-none absolute left-1/2 -translate-x-1/2 mt-3 min-w-[200px] rounded-xl border border-neutral-200 bg-white shadow-xl py-2 text-sm z-50">
+            <a href="../about.html" class="block px-4 py-2 hover:bg-neutral-50" role="menuitem">About Us</a>
+            <a href="../blog.html" class="block px-4 py-2 hover:bg-neutral-50" role="menuitem">Blog</a>
+          </div>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Post hero (standard blog style) -->
+  <section class="relative overflow-hidden hero-banner">
+    <div class="hero-media" style="background-image:url('../public/blog/smart-home-basics.jpg')"></div>
+    <div class="hero-scrim-strong"></div>
+
+    <div class="mx-auto max-w-4xl px-4 pt-20 md:pt-28 pb-8">
+      <div class="reveal hero-panel text-white text-center">
+        <a href="../blog.html" class="inline-flex items-center gap-2 text-xs md:text-sm text-white/80 hover:text-white mb-2">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5" viewBox="0 0 20 20" fill="currentColor"><path d="M12.293 15.707a1 1 0 010-1.414L15.586 11H5a1 1 0 110-2h10.586l-3.293-3.293a1 1 0 111.414-1.414l5 5a1 1 0 010 1.414l-5 5a1 1 0 01-1.414 0z"/></svg>
+          Back to Blog
+        </a>
+        <h1 class="mt-1 text-3xl md:text-5xl font-bold leading-tight drop-shadow-[0_6px_18px_rgba(0,0,0,.35)]">How Does a Smart Home Work?</h1>
+        <div class="mt-2 text-sm md:text-base text-white/85">Smart Home • <time datetime="2025-08-28">Aug 28, 2025</time> • ~5–6 min read</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Post body -->
+  <main class="mx-auto max-w-3xl px-4 py-6">
+    <article class="prose prose-neutral max-w-none">
+
+      <p class="lead">Smart home automation is at the forefront of modern living. It brings unmatched comfort and convenience while boosting energy efficiency and security. Here’s how it works in the real world.</p>
+
+      <div class="callout p-4 rounded-xl mt-6"><strong>What you’ll learn:</strong> Core features (lighting, climate, security, entertainment), how a central hub ties it together, and the real benefits for daily life.</div>
+
+      <h2 class="section-title">What Is a Smart Home?</h2>
+      <p>We’ve all had that moment of doubt: Did I lock the front door? Are the lights still on? Is the AC running? A smart home connects key systems—<strong>lighting, locks, cameras, climate control, and entertainment</strong>—to a single app or remote, giving you visibility and control from anywhere.</p>
+      <p>With Island Integration’s expertise, you’ll always know what’s happening at home, whether you’re inside or abroad.</p>
+
+      <h2 class="section-title">Core Features of a Smart Home</h2>
+
+      <h3 class="font-semibold text-lg mt-6">Smart Thermostats</h3>
+      <p>Control climate from anywhere. Switch heating or cooling on/off, set schedules, and optimize energy use to save money—all from your phone or a wall keypad.</p>
+
+      <h3 class="font-semibold text-lg mt-6">Smart Lighting</h3>
+      <ul class="list-disc pl-6">
+        <li>Schedule lights to turn on or off automatically.</li>
+        <li>Create custom <em>scenes</em> for movie night, dinner, or bedtime.</li>
+        <li>Simulate occupancy while you’re away to deter intruders.</li>
+      </ul>
+
+      <h3 class="font-semibold text-lg mt-6">Smart Locks & Security Cameras</h3>
+      <p>Replace traditional locks with smart locks that respond to your phone, key fob, or voice. Pair them with <strong>Luma</strong> security cameras, motion sensors, and intercoms for a complete view of your property.</p>
+
+      <h3 class="font-semibold text-lg mt-6">Home Entertainment Systems</h3>
+      <p>From multi‑room audio to fully immersive home cinemas, a smart home ties it all together. TVs, projectors, speakers—even outdoor zones—can be integrated for simple, one‑touch control.</p>
+
+      <h2 class="section-title">The Central Hub: Control4</h2>
+      <p>At Island Integration, we design around <strong>Control4</strong>, a world‑leading automation platform. With a single interface, everything works together:</p>
+      <ul class="list-disc pl-6">
+        <li><strong>“Goodnight” scene:</strong> Turn off lights, lock doors, and set the thermostat to the perfect sleep temperature.</li>
+        <li><strong>Morning routine:</strong> Open shades, start the coffee, and play your favorite playlist automatically.</li>
+        <li>Control devices individually or as part of a programmed scene—your home adapts to your lifestyle.</li>
+      </ul>
+
+      <h2 class="section-title">Benefits of a Smart Home</h2>
+      <ul class="list-disc pl-6">
+        <li><strong>Efficiency:</strong> Reduce wasted energy and save on electricity bills.</li>
+        <li><strong>Comfort:</strong> Personalize lighting, temperature, and AV for every moment.</li>
+        <li><strong>Accessibility:</strong> Voice control and mobile apps simplify control for everyone.</li>
+        <li><strong>Peace of mind:</strong> Remote access lets you monitor and secure your home anytime.</li>
+      </ul>
+
+      <h2 class="section-title">Choosing the Right Smart Home System</h2>
+      <p>Every home and family is different. Our process starts with your goals, then we design a system that fits your lifestyle and budget. Whether you want a full automation package or a few key upgrades, we’ll build a solution that works today and scales for tomorrow.</p>
+
+      <h2 class="section-title">Enquire About Your Dream Smart Home</h2>
+      <p>We create bespoke smart home solutions for luxury residences, estates, and commercial spaces across the Bahamas. Based in Nassau, we work with leading brands like <strong>Control4</strong> and <strong>Snap One</strong> to deliver systems that are reliable, intuitive, and built to last.</p>
+
+      <div class="mt-8 grid grid-cols-1 sm:grid-cols-2 gap-3">
+        <a href="tel:+12428209013" class="rounded-full text-center bg-neutral-900 text-white px-6 py-3">Call +1 (242) 820‑9013</a>
+        <a href="mailto:info@island-integration.com?subject=Smart%20Home%20Consultation%20Request" class="rounded-full text-center border border-neutral-900 px-6 py-3">Email our team</a>
+      </div>
+
+      <hr class="my-10 border-neutral-200">
+      <nav class="text-sm flex items-center justify-between">
+        <a href="../blog.html" class="underline underline-offset-4">← Back to Blog</a>
+        <a href="../index.html#services" class="underline underline-offset-4">Explore Services →</a>
+      </nav>
+    </article>
+  </main>
+
+  <!-- Footer -->
+  <footer class="border-t border-neutral-200">
+    <div class="mx-auto max-w-7xl px-4 py-8 text-sm text-neutral-600">© <span id="y"></span> Island Integration • Nassau, Bahamas</div>
+  </footer>
+
+  <script>
+  (function(){
+    const DELAY=120;
+    function initDropdown(root){
+      if(!root) return;
+      const btn=root.querySelector('button[aria-haspopup="true"]');
+      let closeTO=null;
+      const open=()=>{clearTimeout(closeTO);root.classList.add('open');btn?.setAttribute('aria-expanded','true');};
+      const close=()=>{clearTimeout(closeTO);root.classList.remove('open');btn?.setAttribute('aria-expanded','false');};
+      const delayedClose=()=>{clearTimeout(closeTO);closeTO=setTimeout(close,DELAY);};
+      root.addEventListener('mouseenter',open);
+      root.addEventListener('mouseleave',delayedClose);
+      btn?.addEventListener('click',(e)=>{e.stopPropagation();root.classList.contains('open')?close():open();});
+      document.addEventListener('click',(e)=>{ if(!root.contains(e.target)) close(); });
+      document.addEventListener('keydown',(e)=>{ if(e.key==='Escape') close(); });
+    }
+    document.querySelectorAll('.nav-about').forEach(initDropdown);
+
+    // year
+    document.getElementById('y').textContent = new Date().getFullYear();
+
+    // reveal
+    const io=new IntersectionObserver((es)=>es.forEach(e=>e.target.classList.toggle('is-in',e.isIntersecting)),{threshold:0.15});
+    document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+
+    // header shadow
+    const header=document.getElementById('site-header');
+    const tweak=()=>{(window.scrollY||0)>4?header.classList.add('sticky-shadow'):header.classList.remove('sticky-shadow');};
+    window.addEventListener('scroll',tweak,{passive:true}); tweak();
+  })();
+  </script>
+</body>
+</html>
