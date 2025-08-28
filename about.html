@@ -4,12 +4,8 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>About Us | Island Integration</title>
-  <meta name="description" content="Island Integration designs and installs luxury smart home systems across the Bahamas—lighting control, home cinema, automated shading, climate, networking, security, and ongoing system support." />
+  <meta name="description" content="Island Integration designs and installs luxury smart home systems across the Bahamas — lighting control, home cinema, automated shading, climate, networking, security, and ongoing support." />
   <link rel="icon" href="public/logo.png" />
-  <meta property="og:title" content="About Island Integration" />
-  <meta property="og:description" content="Smart homes & luxury integration—crafted in the Bahamas." />
-  <meta property="og:type" content="website" />
-  <meta property="og:image" content="https://jonoccartwright-ship-it.github.io/Island-Integration/public/hero-poster.jpg" />
 
   <!-- Tailwind CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
@@ -19,6 +15,9 @@
     .sticky-shadow{box-shadow:0 8px 24px rgba(0,0,0,.06)}
     .reveal{opacity:0;transform:translateY(18px) scale(.985);transition:opacity .55s ease,transform .55s ease}
     .reveal.is-in{opacity:1;transform:translateY(0) scale(1)}
+    .dropdown-panel{transition:opacity .16s ease,transform .16s ease;transform-origin:top center}
+    .nav-about.open .dropdown-panel{visibility:visible;opacity:1;transform:scale(1);pointer-events:auto}
+    .nav-about:not(.open) .dropdown-panel{opacity:0;transform:scale(.98);pointer-events:none;visibility:hidden}
   </style>
 </head>
 <body class="bg-white text-neutral-900 selection:bg-black selection:text-white">
@@ -29,9 +28,7 @@
       <nav class="relative flex items-center gap-8 text-sm">
         <a href="index.html#services" class="hover:opacity-60">Services</a>
         <a href="index.html#partners" class="hover:opacity-60">Our Partners</a>
-        <a href="index.html#process" class="hover:opacity-60">Process</a>
         <a href="index.html#contact" class="hover:opacity-60">Contact</a>
-        <!-- About dropdown (same behavior site-wide) -->
         <div class="nav-about relative">
           <button class="inline-flex items-center gap-1 hover:opacity-60" aria-haspopup="true" aria-expanded="false" aria-controls="about-menu" type="button">
             About
@@ -47,20 +44,24 @@
     </div>
   </header>
 
-  <!-- Hero (matches landing: video background + gradient overlay) -->
+  <!-- Hero (static image, same logo treatment as landing) -->
   <section class="relative overflow-hidden">
     <div class="absolute inset-0 -z-10">
-      <video class="h-full w-full object-cover" autoplay muted loop playsinline poster="public/hero-poster.jpg">
-        <source src="public/hero.webm" type="video/webm" />
-        <source src="public/hero.mp4" type="video/mp4" />
-        <img src="public/hero-poster.jpg" alt="Luxury smart home" />
-      </video>
-      <!-- same soft white gradient as home -->
+      <!-- Static hero image -->
+      <img src="public/about-hero.jpg" alt="Island Integration — luxury smart home projects" class="w-full h-full object-cover">
+      <!-- Soft white gradient like the homepage -->
       <div class="absolute inset-0 bg-gradient-to-t from-white via-white/40 to-transparent"></div>
     </div>
 
-    <div class="mx-auto max-w-7xl px-4 py-24 md:py-40">
+    <div class="mx-auto max-w-7xl px-4 py-28 md:py-40">
       <div class="max-w-3xl reveal">
+        <!-- Logo badge (same feel as landing hero) -->
+        <div class="mb-6 flex items-center justify-start">
+          <span class="inline-flex items-center justify-center rounded-2xl p-2 md:p-3 bg-black/5 ring-1 ring-black/5">
+            <img src="public/logo.png" alt="Island Integration logo" class="h-16 md:h-20 w-auto drop-shadow-sm" />
+          </span>
+        </div>
+
         <h1 class="text-4xl md:text-6xl font-semibold leading-tight">
           <span class="bg-gradient-to-r from-neutral-900 to-neutral-600 bg-clip-text text-transparent">
             About Island Integration
@@ -70,7 +71,7 @@
           We design, install, and support luxury smart home systems across the Bahamas — from
           lighting control and home cinema to enterprise-grade networking and smart security.
         </p>
-        <div class="mt-8 flex flex-col sm:flex-row items-start gap-3">
+        <div class="mt-8 flex flex-col sm:flex-row items-start gap-4">
           <a href="mailto:info@island-integration.com?subject=Consultation%20Request" class="rounded-full bg-neutral-900 text-white px-6 py-3">Connect with us</a>
           <a href="tel:+12428209013" class="rounded-full border border-neutral-900 px-6 py-3">Call +1 (242) 820-9013</a>
         </div>
@@ -78,7 +79,7 @@
     </div>
   </section>
 
-  <!-- Our Story / Values -->
+  <!-- About content (kept simple; no Capabilities/Process) -->
   <section class="mx-auto max-w-7xl px-4 py-16">
     <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
       <div class="reveal">
@@ -105,81 +106,7 @@
     </div>
   </section>
 
-  <!-- Capabilities (mirrors Services look) -->
-  <section class="mx-auto max-w-7xl px-4 pb-10">
-    <div class="flex items-end justify-between gap-6">
-      <div>
-        <h2 class="text-2xl md:text-4xl font-semibold">Capabilities</h2>
-        <div class="h-1 w-24 bg-gradient-to-r rounded-full mt-3 from-neutral-900 to-neutral-500"></div>
-      </div>
-      <a href="index.html#services" class="text-sm underline underline-offset-4">View full services</a>
-    </div>
-
-    <div class="mt-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-      <!-- 1 -->
-      <div class="group rounded-2xl border backdrop-blur p-0 shadow-sm hover:shadow-lg transition relative overflow-hidden border-neutral-200/70 bg-white/70">
-        <div class="aspect-[4/3] w-full overflow-hidden">
-          <img src="public/services/lighting.jpg" alt="Lighting control" class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.03]">
-        </div>
-        <div class="p-6">
-          <h3 class="font-semibold">Lighting Control</h3>
-          <p class="mt-2 text-sm text-neutral-600">Scene-based lighting, daylight automation, and elegant keypads.</p>
-        </div>
-      </div>
-      <!-- 2 -->
-      <div class="group rounded-2xl border backdrop-blur p-0 shadow-sm hover:shadow-lg transition relative overflow-hidden border-neutral-200/70 bg-white/70">
-        <div class="aspect-[4/3] w-full overflow-hidden">
-          <img src="public/services/cinema.jpg" alt="Home cinema" class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.03]">
-        </div>
-        <div class="p-6">
-          <h3 class="font-semibold">Home Cinema</h3>
-          <p class="mt-2 text-sm text-neutral-600">Projection, immersive audio, and custom seating layouts.</p>
-        </div>
-      </div>
-      <!-- 3 -->
-      <div class="group rounded-2xl border backdrop-blur p-0 shadow-sm hover:shadow-lg transition relative overflow-hidden border-neutral-200/70 bg-white/70">
-        <div class="aspect-[4/3] w-full overflow-hidden">
-          <img src="public/services/wifi.jpg" alt="Wi-Fi & networking" class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.03]">
-        </div>
-        <div class="p-6">
-          <h3 class="font-semibold">Wi-Fi & Networking</h3>
-          <p class="mt-2 text-sm text-neutral-600">Enterprise-grade Wi-Fi, fiber backbones, and secure VLANS.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Process (same structure as landing “Process”) -->
-  <section id="process" class="mx-auto max-w-7xl px-4 py-14">
-    <div class="reveal">
-      <h2 class="text-2xl md:text-4xl font-semibold">Our Process</h2>
-      <div class="h-1 w-24 bg-gradient-to-r rounded-full mt-3 from-neutral-900 to-neutral-500"></div>
-      <div class="mt-8 grid grid-cols-1 md:grid-cols-4 gap-6">
-        <div class="rounded-2xl border p-6 bg-white/70 border-neutral-200/70">
-          <div class="text-xs font-medium tracking-wide text-neutral-500">01</div>
-          <h3 class="mt-2 font-semibold">Consult</h3>
-          <p class="mt-2 text-sm text-neutral-600">Site walk-through, goals, and constraints.</p>
-        </div>
-        <div class="rounded-2xl border p-6 bg-white/70 border-neutral-200/70">
-          <div class="text-xs font-medium tracking-wide text-neutral-500">02</div>
-          <h3 class="mt-2 font-semibold">Design</h3>
-          <p class="mt-2 text-sm text-neutral-600">Plans, scope, and investment options.</p>
-        </div>
-        <div class="rounded-2xl border p-6 bg-white/70 border-neutral-200/70">
-          <div class="text-xs font-medium tracking-wide text-neutral-500">03</div>
-          <h3 class="mt-2 font-semibold">Install</h3>
-          <p class="mt-2 text-sm text-neutral-600">Clean, coordinated implementation.</p>
-        </div>
-        <div class="rounded-2xl border p-6 bg-white/70 border-neutral-200/70">
-          <div class="text-xs font-medium tracking-wide text-neutral-500">04</div>
-          <h3 class="mt-2 font-semibold">Support</h3>
-          <p class="mt-2 text-sm text-neutral-600">Monitoring, maintenance, and upgrades.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- CTA (matches landing tone) -->
+  <!-- CTA -->
   <section id="contact" class="mx-auto max-w-7xl px-4 pb-20">
     <div class="reveal rounded-2xl border p-8 md:p-10 bg-white/80 border-neutral-200">
       <div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-center">
@@ -202,245 +129,7 @@
     </div>
   </footer>
 
-  <!-- Scripts (same site behavior) -->
-  <script>
-    (function(){
-      const DELAY=120;
-      function initDropdown(root){
-        if(!root) return;
-        const btn=root.querySelector('button[aria-haspopup="true"]');
-        let closeTO=null;
-        const open=()=>{clearTimeout(closeTO);root.classList.add('open');btn?.setAttribute('aria-expanded','true');};
-        const close=()=>{clearTimeout(closeTO);root.classList.remove('open');btn?.setAttribute('aria-expanded','false');};
-        const delayedClose=()=>{clearTimeout(closeTO);closeTO=setTimeout(close,DELAY);};
-        root.addEventListener('mouseenter',open);
-        root.addEventListener('mouseleave',delayedClose);
-        btn?.addEventListener('click',(e)=>{e.stopPropagation();root.classList.contains('open')?close():open();});
-        document.addEventListener('click',(e)=>{ if(!root.contains(e.target)) close(); });
-        document.addEventListener('keydown',(e)=>{ if(e.key==='Escape') close(); });
-      }
-      document.querySelectorAll('.nav-about').forEach(initDropdown);
-
-      // Header shadow
-      const header=document.getElementById('site-header');
-      const tweak=()=>{(window.scrollY||0)>4?header.classList.add('sticky-shadow'):header.classList.remove('sticky-shadow');};
-      window.addEventListener('scroll',tweak,{passive:true}); tweak();
-
-      // Reveal on view
-      const io=new IntersectionObserver((es)=>es.forEach(e=>e.target.classList.toggle('is-in',e.isIntersecting)),{threshold:0.15});
-      document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
-
-      // Year
-      document.getElementById('y').textContent=new Date().getFullYear();
-    })();
-  </script>
-</body>
-</html>
-<!doctype html>
-<html lang="en">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>About Us | Island Integration</title>
-  <meta name="description" content="Island Integration designs and installs luxury smart home systems across the Bahamas—lighting control, home cinema, automated shading, climate, networking, security, and ongoing system support." />
-  <link rel="icon" href="public/logo.png" />
-  <meta property="og:title" content="About Island Integration" />
-  <meta property="og:description" content="Smart homes & luxury integration—crafted in the Bahamas." />
-  <meta property="og:type" content="website" />
-  <meta property="og:image" content="https://jonoccartwright-ship-it.github.io/Island-Integration/public/hero-poster.jpg" />
-
-  <!-- Tailwind CDN -->
-  <script src="https://cdn.tailwindcss.com"></script>
-  <style>
-    html{scroll-behavior:smooth}
-    .glass{background:rgba(255,255,255,.72);backdrop-filter:blur(8px)}
-    .sticky-shadow{box-shadow:0 8px 24px rgba(0,0,0,.06)}
-    .reveal{opacity:0;transform:translateY(18px) scale(.985);transition:opacity .55s ease,transform .55s ease}
-    .reveal.is-in{opacity:1;transform:translateY(0) scale(1)}
-  </style>
-</head>
-<body class="bg-white text-neutral-900 selection:bg-black selection:text-white">
-
-  <!-- Header (same as landing) -->
-  <header id="site-header" class="sticky top-0 z-50 border-b border-neutral-200/60 glass">
-    <div class="mx-auto max-w-7xl px-4 py-3 flex items-center justify-center">
-      <nav class="relative flex items-center gap-8 text-sm">
-        <a href="index.html#services" class="hover:opacity-60">Services</a>
-        <a href="index.html#partners" class="hover:opacity-60">Our Partners</a>
-        <a href="index.html#process" class="hover:opacity-60">Process</a>
-        <a href="index.html#contact" class="hover:opacity-60">Contact</a>
-        <!-- About dropdown (same behavior site-wide) -->
-        <div class="nav-about relative">
-          <button class="inline-flex items-center gap-1 hover:opacity-60" aria-haspopup="true" aria-expanded="false" aria-controls="about-menu" type="button">
-            About
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5" viewBox="0 0 20 20" fill="currentColor"><path d="M5.23 7.21a.75.75 0 011.06.02L10 11.116l3.71-3.886a.75.75 0 111.08 1.04l-4.25 4.45a.75.75 0 01-1.08 0l-4.25-4.45a.75.75 0 01.02-1.06z"/></svg>
-          </button>
-          <div class="absolute left-1/2 -translate-x-1/2 top-full w-44 h-3"></div>
-          <div id="about-menu" role="menu" class="dropdown-panel invisible opacity-0 scale-95 pointer-events-none absolute left-1/2 -translate-x-1/2 mt-3 min-w-[200px] rounded-xl border border-neutral-200 bg-white shadow-xl py-2 text-sm z-50">
-            <a href="about.html" class="block px-4 py-2 hover:bg-neutral-50" role="menuitem">About Us</a>
-            <a href="blog.html" class="block px-4 py-2 hover:bg-neutral-50" role="menuitem">Blog</a>
-          </div>
-        </div>
-      </nav>
-    </div>
-  </header>
-
-  <!-- Hero (matches landing: video background + gradient overlay) -->
-  <section class="relative overflow-hidden">
-    <div class="absolute inset-0 -z-10">
-      <video class="h-full w-full object-cover" autoplay muted loop playsinline poster="public/hero-poster.jpg">
-        <source src="public/hero.webm" type="video/webm" />
-        <source src="public/hero.mp4" type="video/mp4" />
-        <img src="public/hero-poster.jpg" alt="Luxury smart home" />
-      </video>
-      <!-- same soft white gradient as home -->
-      <div class="absolute inset-0 bg-gradient-to-t from-white via-white/40 to-transparent"></div>
-    </div>
-
-    <div class="mx-auto max-w-7xl px-4 py-24 md:py-40">
-      <div class="max-w-3xl reveal">
-        <h1 class="text-4xl md:text-6xl font-semibold leading-tight">
-          <span class="bg-gradient-to-r from-neutral-900 to-neutral-600 bg-clip-text text-transparent">
-            About Island Integration
-          </span>
-        </h1>
-        <p class="mt-5 text-neutral-700 max-w-xl">
-          We design, install, and support luxury smart home systems across the Bahamas — from
-          lighting control and home cinema to enterprise-grade networking and smart security.
-        </p>
-        <div class="mt-8 flex flex-col sm:flex-row items-start gap-3">
-          <a href="mailto:info@island-integration.com?subject=Consultation%20Request" class="rounded-full bg-neutral-900 text-white px-6 py-3">Connect with us</a>
-          <a href="tel:+12428209013" class="rounded-full border border-neutral-900 px-6 py-3">Call +1 (242) 820-9013</a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Our Story / Values -->
-  <section class="mx-auto max-w-7xl px-4 py-16">
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
-      <div class="reveal">
-        <h2 class="text-2xl md:text-4xl font-semibold">Our Story</h2>
-        <p class="mt-4 text-neutral-700">
-          Island Integration began with a simple idea: technology should disappear into beautiful spaces.
-          Over the last decade we’ve helped homeowners, developers, and hospitality teams create environments
-          that feel effortless — reliable networks, intuitive control, and cinematic AV without visual clutter.
-        </p>
-        <p class="mt-4 text-neutral-700">
-          From Lyford Cay and Old Fort Bay to Ocean Club Estates and Albany, we deliver systems tailored to each property,
-          with craftsmanship that lasts.
-        </p>
-      </div>
-      <div class="reveal">
-        <h2 class="text-2xl md:text-4xl font-semibold">What We Believe</h2>
-        <ul class="mt-4 space-y-3 text-neutral-700">
-          <li><strong>Design first:</strong> Technology should enhance architecture, not fight it.</li>
-          <li><strong>Reliability matters:</strong> Enterprise-grade networks are the backbone of every system.</li>
-          <li><strong>One-touch living:</strong> Scenes simplify complex spaces into simple experiences.</li>
-          <li><strong>Long-term support:</strong> We maintain, monitor, and evolve systems as needs change.</li>
-        </ul>
-      </div>
-    </div>
-  </section>
-
-  <!-- Capabilities (mirrors Services look) -->
-  <section class="mx-auto max-w-7xl px-4 pb-10">
-    <div class="flex items-end justify-between gap-6">
-      <div>
-        <h2 class="text-2xl md:text-4xl font-semibold">Capabilities</h2>
-        <div class="h-1 w-24 bg-gradient-to-r rounded-full mt-3 from-neutral-900 to-neutral-500"></div>
-      </div>
-      <a href="index.html#services" class="text-sm underline underline-offset-4">View full services</a>
-    </div>
-
-    <div class="mt-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-      <!-- 1 -->
-      <div class="group rounded-2xl border backdrop-blur p-0 shadow-sm hover:shadow-lg transition relative overflow-hidden border-neutral-200/70 bg-white/70">
-        <div class="aspect-[4/3] w-full overflow-hidden">
-          <img src="public/services/lighting.jpg" alt="Lighting control" class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.03]">
-        </div>
-        <div class="p-6">
-          <h3 class="font-semibold">Lighting Control</h3>
-          <p class="mt-2 text-sm text-neutral-600">Scene-based lighting, daylight automation, and elegant keypads.</p>
-        </div>
-      </div>
-      <!-- 2 -->
-      <div class="group rounded-2xl border backdrop-blur p-0 shadow-sm hover:shadow-lg transition relative overflow-hidden border-neutral-200/70 bg-white/70">
-        <div class="aspect-[4/3] w-full overflow-hidden">
-          <img src="public/services/cinema.jpg" alt="Home cinema" class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.03]">
-        </div>
-        <div class="p-6">
-          <h3 class="font-semibold">Home Cinema</h3>
-          <p class="mt-2 text-sm text-neutral-600">Projection, immersive audio, and custom seating layouts.</p>
-        </div>
-      </div>
-      <!-- 3 -->
-      <div class="group rounded-2xl border backdrop-blur p-0 shadow-sm hover:shadow-lg transition relative overflow-hidden border-neutral-200/70 bg-white/70">
-        <div class="aspect-[4/3] w-full overflow-hidden">
-          <img src="public/services/wifi.jpg" alt="Wi-Fi & networking" class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.03]">
-        </div>
-        <div class="p-6">
-          <h3 class="font-semibold">Wi-Fi & Networking</h3>
-          <p class="mt-2 text-sm text-neutral-600">Enterprise-grade Wi-Fi, fiber backbones, and secure VLANS.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Process (same structure as landing “Process”) -->
-  <section id="process" class="mx-auto max-w-7xl px-4 py-14">
-    <div class="reveal">
-      <h2 class="text-2xl md:text-4xl font-semibold">Our Process</h2>
-      <div class="h-1 w-24 bg-gradient-to-r rounded-full mt-3 from-neutral-900 to-neutral-500"></div>
-      <div class="mt-8 grid grid-cols-1 md:grid-cols-4 gap-6">
-        <div class="rounded-2xl border p-6 bg-white/70 border-neutral-200/70">
-          <div class="text-xs font-medium tracking-wide text-neutral-500">01</div>
-          <h3 class="mt-2 font-semibold">Consult</h3>
-          <p class="mt-2 text-sm text-neutral-600">Site walk-through, goals, and constraints.</p>
-        </div>
-        <div class="rounded-2xl border p-6 bg-white/70 border-neutral-200/70">
-          <div class="text-xs font-medium tracking-wide text-neutral-500">02</div>
-          <h3 class="mt-2 font-semibold">Design</h3>
-          <p class="mt-2 text-sm text-neutral-600">Plans, scope, and investment options.</p>
-        </div>
-        <div class="rounded-2xl border p-6 bg-white/70 border-neutral-200/70">
-          <div class="text-xs font-medium tracking-wide text-neutral-500">03</div>
-          <h3 class="mt-2 font-semibold">Install</h3>
-          <p class="mt-2 text-sm text-neutral-600">Clean, coordinated implementation.</p>
-        </div>
-        <div class="rounded-2xl border p-6 bg-white/70 border-neutral-200/70">
-          <div class="text-xs font-medium tracking-wide text-neutral-500">04</div>
-          <h3 class="mt-2 font-semibold">Support</h3>
-          <p class="mt-2 text-sm text-neutral-600">Monitoring, maintenance, and upgrades.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- CTA (matches landing tone) -->
-  <section id="contact" class="mx-auto max-w-7xl px-4 pb-20">
-    <div class="reveal rounded-2xl border p-8 md:p-10 bg-white/80 border-neutral-200">
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-center">
-        <div class="md:col-span-2">
-          <h2 class="text-2xl md:text-4xl font-semibold">Let’s plan your project</h2>
-          <p class="mt-3 text-sm text-neutral-600">Tell us about your property and goals — we’ll recommend the right approach.</p>
-        </div>
-        <div class="flex flex-col sm:flex-row md:justify-end gap-3">
-          <a href="mailto:info@island-integration.com?subject=Consultation%20Request" class="rounded-full bg-neutral-900 text-white px-6 py-3 text-center">Connect with us</a>
-          <a href="tel:+12428209013" class="rounded-full border border-neutral-900 px-6 py-3 text-center">Call +1 (242) 820-9013</a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Footer -->
-  <footer class="border-t border-neutral-200">
-    <div class="mx-auto max-w-7xl px-4 py-8 text-sm text-neutral-600">
-      © <span id="y"></span> Island Integration • Nassau, Bahamas
-    </div>
-  </footer>
-
-  <!-- Scripts (same site behavior) -->
+  <!-- Scripts -->
   <script>
     (function(){
       const DELAY=120;
