@@ -97,14 +97,23 @@
   }
 
   /* ---- Contact form: composes an email (no backend on GitHub Pages) ---- */
-  var form = doc.querySelector('form[data-mailto]');
+  /* ---- Email links: assembled here so the address is not in the page text
+     for simple scrapers. Without JS the visitor sees a spelled-out address. */
+  doc.querySelectorAll('a[data-mail-u]').forEach(function (a) {
+    var addr = a.getAttribute('data-mail-u') + '@' + a.getAttribute('data-mail-d');
+    var subj = a.getAttribute('data-mail-subject');
+    a.setAttribute('href', 'mailto:' + addr + (subj ? '?subject=' + encodeURIComponent(subj) : ''));
+    if (!a.hasAttribute('data-mail-keep')) a.textContent = addr;
+  });
+
+  var form = doc.querySelector('form[data-mail-form]');
   if (form) {
     var status = form.querySelector('.form__status');
     form.addEventListener('submit', function (e) {
       e.preventDefault();
       if (!form.reportValidity()) return;
       var v = function (n) { var el = form.elements[n]; return el ? String(el.value || '').trim() : ''; };
-      var to = form.getAttribute('data-mailto');
+      var to = form.getAttribute('data-mail-u') + '@' + form.getAttribute('data-mail-d');
       var subject = 'Consultation request' + (v('interest') ? ' — ' + v('interest') : '') + ' — ' + v('name');
       var body = [
         'Name: ' + v('name'),
