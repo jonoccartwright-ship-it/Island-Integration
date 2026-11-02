@@ -26,7 +26,7 @@ const PUB = path.join(ROOT, 'public');
 /** [directory, { cap: max width of the JPEG fallback, widths: WebP widths, q: quality }] */
 const GROUPS = [
   ['services', { cap: 1200, widths: [480, 960], q: 78 }],
-  ['partners', { cap: 640, widths: [320], q: 82 }],
+  ['partners', { cap: 640, widths: [320], q: 84, trim: true }],
   ['blog', { cap: 1600, widths: [640, 1200], q: 78 }],
 ];
 const SINGLES = [
@@ -36,7 +36,12 @@ const SINGLES = [
 
 const kb = (f) => (fs.statSync(f).size / 1024).toFixed(0) + 'KB';
 
-async function processJpeg(file, { cap, widths, q }) {
+async function processJpeg(file, { cap, widths, q, trim }) {
+  if (trim) {
+    // logos ship with large white margins; trim them so they fill their tile
+    const t = await sharp(file).trim({ threshold: 14 }).extend({ top: 10, bottom: 10, left: 14, right: 14, background: '#ffffff' }).jpeg({ quality: 92, mozjpeg: true }).toBuffer();
+    fs.writeFileSync(file, t);
+  }
   const meta = await sharp(file).metadata();
   const base = file.replace(/\.jpe?g$/i, '');
   const before = fs.statSync(file).size;
@@ -83,7 +88,7 @@ async function logos() {
     fs.writeFileSync(path.join(PUB, 'logo.png'), master);
   }
   const logo = path.join(PUB, 'logo.png');
-  for (const w of [240, 480]) {
+  for (const w of [240]) {
     await sharp(logo).resize({ width: w }).png({ compressionLevel: 9, palette: true, quality: 90 }).toFile(path.join(PUB, `logo-${w}.png`));
   }
   // icon: the gear-and-rooftops mark (top ~68% of the wordmark lockup)
