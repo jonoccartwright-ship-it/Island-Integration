@@ -183,7 +183,7 @@ button, input, select, textarea { font: inherit; color: inherit; }
   .js .nav__link { padding: 0.95rem 0; font-size: 1.125rem; border-bottom: 1px solid var(--line); }
   .js .nav__link::after { display: none; }
   .js .nav__link[aria-current="page"] { color: var(--teal); }
-  .js .nav .btn { margin-top: 1.25rem; }
+  .nav .btn { margin-top: 1.25rem; min-height: 3rem; }
   /* no-JS fallback: links simply wrap under the logo */
   .nav { width: 100%; padding-bottom: 0.75rem; }
 }
@@ -333,7 +333,7 @@ button, input, select, textarea { font: inherit; color: inherit; }
 .field .opt { font-weight: 400; color: var(--muted); }
 .field input, .field select, .field textarea {
   width: 100%; min-height: 3rem; padding: 0.7rem 0.9rem;
-  background: #fff; border: 1.5px solid #b9b5aa; border-radius: var(--radius);
+  background: #fff; border: 1.5px solid #837f72; border-radius: var(--radius);
   transition: border-color 0.15s, box-shadow 0.15s;
 }
 .field textarea { min-height: 8.5rem; resize: vertical; }
