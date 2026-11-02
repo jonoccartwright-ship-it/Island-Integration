@@ -188,6 +188,10 @@ button, input, select, textarea { font: inherit; color: inherit; }
   .nav { width: 100%; padding-bottom: 0.75rem; }
 }
 @media (min-width: 56.3em) { .nav .btn { margin-left: 0.5rem; } }
+.nav__phone { font-weight: 650; color: var(--ink); text-decoration: none; white-space: nowrap; font-variant-numeric: tabular-nums; }
+.nav__phone:hover { color: var(--teal-ink); }
+@media (max-width: 75em) and (min-width: 56.3em) { .nav__phone { display: none; } }
+@media (max-width: 56.29em) { .js .nav__phone { padding: 0.95rem 0; font-size: 1.125rem; border-bottom: 1px solid var(--line); } }
 
 /* ---------- 6. Hero (home) ---------------------------------------------- */
 .hero {
@@ -355,13 +359,31 @@ button, input, select, textarea { font: inherit; color: inherit; }
 .site-footer a:hover { color: var(--teal-ink); text-decoration: underline; }
 .site-footer__legal { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 0.5rem 2rem; padding-block: 1.5rem; border-top: 1px solid var(--line); font-size: 0.875rem; color: var(--muted); }
 
-.call-fab {
-  position: fixed; right: 1rem; bottom: 1rem; z-index: 40;
-  display: none; align-items: center; gap: 0.5rem; min-height: 3rem; padding: 0.65rem 1.25rem;
-  background: var(--ink); color: #fff; border-radius: 999px; font-weight: 650; text-decoration: none; box-shadow: var(--shadow-md);
+/* Mobile bottom bar: always-visible call + consultation actions */
+.mobile-bar {
+  position: fixed; left: 0; right: 0; bottom: 0; z-index: 40;
+  display: none; grid-template-columns: 1fr 1.6fr; gap: 0.5rem;
+  padding: 0.5rem 0.75rem calc(0.5rem + env(safe-area-inset-bottom));
+  background: rgb(255 255 255 / 0.96); border-top: 1px solid var(--line);
+  -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px);
 }
-.call-fab:hover { color: #fff; background: var(--teal-ink); }
-@media (max-width: 47.99em) { .call-fab { display: inline-flex; } .site-footer { padding-bottom: 4.5rem; } }
+.mobile-bar a {
+  display: inline-flex; align-items: center; justify-content: center; min-height: 3rem; padding: 0.5rem 0.75rem;
+  border-radius: 999px; font-weight: 650; font-size: 0.95rem; text-decoration: none; text-align: center;
+}
+.mobile-bar__call { background: var(--ink); color: #fff; }
+.mobile-bar__cta { background: var(--gold); color: var(--ink); }
+.mobile-bar__call:hover { color: #fff; background: var(--teal-ink); }
+.mobile-bar__cta:hover { color: var(--ink); filter: brightness(0.95); }
+@media (max-width: 47.99em) { .mobile-bar { display: grid; } .site-footer { padding-bottom: 5.5rem; } }
+
+/* Mid-page call to action */
+.cta-strip { background: var(--gold); color: var(--ink); padding-block: clamp(2rem, 5vw, 3.25rem); }
+.cta-strip__inner { display: grid; gap: 1.5rem; align-items: center; }
+.cta-strip h2 { font-size: var(--fs-h3, 1.5rem); margin-bottom: 0.35rem; }
+.cta-strip p { color: rgb(13 17 23 / 0.82); max-width: 40rem; }
+.cta-strip .btn--ghost { border-color: var(--ink); }
+@media (min-width: 52em) { .cta-strip__inner { grid-template-columns: 1fr auto; } }
 
 /* ---------- 13. Blog index & posts -------------------------------------- */
 .post-card { display: flex; flex-direction: column; background: #fff; border: 1px solid var(--line); border-radius: var(--radius-lg); overflow: hidden; transition: box-shadow 0.2s var(--ease), transform 0.2s var(--ease); }
@@ -443,7 +465,7 @@ button, input, select, textarea { font: inherit; color: inherit; }
 
 /* ---------- 16. Print & misc -------------------------------------------- */
 @media print {
-  .site-header, .call-fab, .hero__media, .hero__strip, .form, .post-cta, .related { display: none !important; }
+  .site-header, .mobile-bar, .cta-strip, .hero__media, .hero__strip, .form, .post-cta, .related { display: none !important; }
   .hero { min-height: 0; color: #000; background: none; } .hero::after { display: none; }
   body { font-size: 11pt; }
 }
