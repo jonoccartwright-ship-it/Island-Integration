@@ -5,6 +5,13 @@
   'use strict';
 
   var doc = document;
+
+  /* ---- Clickjacking defence: GitHub Pages cannot send X-Frame-Options or
+     frame-ancestors, so if another site frames this one, hide it and break out. */
+  if (window.top !== window.self) {
+    doc.documentElement.style.display = 'none';
+    try { window.top.location = window.self.location; } catch (e) { /* cross-origin: stay hidden */ }
+  }
   var reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
   /* ---- Mobile navigation ------------------------------------------------ */
