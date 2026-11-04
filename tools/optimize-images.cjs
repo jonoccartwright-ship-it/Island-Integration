@@ -143,4 +143,15 @@ async function og(name, srcFile, { position = 'attention' } = {}) {
   await og('home-cinema-ideas', path.join(PUB, 'blog/home-cinema-ideas.jpg'));
   await og('smart-home-basics', path.join(PUB, 'blog/smart-home-basics.jpg'));
   await og('tv-wall-mounting', path.join(PUB, 'blog/tv-wall-mounting.jpg'));
+  await og('hurricane-season-smart-home', path.join(PUB, 'blog/hurricane-season-smart-home.jpg'));
+  await og('backup-power-smart-home', path.join(PUB, 'blog/backup-power-smart-home.jpg'));
+  await og('salt-air-humidity-electronics', path.join(PUB, 'blog/salt-air-humidity-electronics.jpg'));
+  await og('wifi-concrete-homes', path.join(PUB, 'blog/wifi-concrete-homes.jpg'));
+  await og('lighting-control-guide', path.join(PUB, 'blog/lighting-control-guide.jpg'));
+  await og('cooling-costs-smart-climate', path.join(PUB, 'blog/cooling-costs-smart-climate.jpg'));
+  await og('security-cameras-second-home', path.join(PUB, 'blog/security-cameras-second-home.jpg'));
+  await og('outdoor-audio-patio-pool', path.join(PUB, 'blog/outdoor-audio-patio-pool.jpg'));
+  await og('new-build-prewire-checklist', path.join(PUB, 'blog/new-build-prewire-checklist.jpg'));
+  await og('professional-vs-diy-smart-home', path.join(PUB, 'blog/professional-vs-diy-smart-home.jpg'));
+  await og('smart-shades-heat-uv', path.join(PUB, 'blog/smart-shades-heat-uv.jpg'));
 })().catch((e) => { console.error(e); process.exit(1); });
