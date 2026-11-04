@@ -281,6 +281,8 @@ button, input, select, textarea { font: inherit; color: inherit; }
 .card__media img { width: 100%; height: 100%; object-fit: cover; }
 .card__body { display: flex; flex-direction: column; gap: 0.6rem; padding: 1.5rem 1.5rem 1.75rem; flex: 1; }
 .card__body h3 { font-size: var(--fs-h3); }
+.card__body h3 a { color: inherit; text-decoration: none; }
+.card__body h3 a:hover { color: var(--teal-ink); text-decoration: underline; text-decoration-color: var(--gold); text-decoration-thickness: 3px; }
 .card__body p { color: var(--muted); font-size: var(--fs-small); line-height: 1.6; }
 
 .card--feature { margin-bottom: clamp(1.1rem, 2vw, 1.75rem); }
@@ -350,7 +352,9 @@ button, input, select, textarea { font: inherit; color: inherit; }
 /* ---------- 12. Footer --------------------------------------------------- */
 .site-footer { background: var(--stone); border-top: 1px solid var(--line); padding-top: clamp(3rem, 6vw, 4.5rem); }
 .site-footer__grid { display: grid; gap: 2.5rem; padding-bottom: clamp(2.5rem, 5vw, 4rem); }
-@media (min-width: 52em) { .site-footer__grid { grid-template-columns: 1.4fr 1fr 1fr 1.2fr; } }
+@media (min-width: 52em) { .site-footer__grid { grid-template-columns: 1.4fr 1fr 1fr 1.2fr; } .site-footer__grid--5 { grid-template-columns: 1fr 1fr 1fr; } }
+@media (min-width: 72em) { .site-footer__grid--5 { grid-template-columns: 1.4fr 1.1fr 0.9fr 0.9fr 1.1fr; } }
+.site-footer nav[aria-label="Services"] ul { display: grid; gap: 0.45rem; }
 .site-footer img { height: 3.25rem; width: auto; }
 .site-footer p { margin-top: 1.1rem; max-width: 26rem; color: var(--muted); font-size: var(--fs-small); }
 .site-footer h2 { font-size: 0.8rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); margin-bottom: 1rem; }
