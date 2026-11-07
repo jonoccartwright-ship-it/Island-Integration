@@ -29,7 +29,7 @@
   <meta name="twitter:image" content="https://www.island-integration.com/public/og/home.jpg">
 
   <script>document.documentElement.classList.add('js')</script>
-  <link rel="stylesheet" href="/assets/css/site.css?v=20261104">
+  <link rel="stylesheet" href="/assets/css/site.css?v=20261107">
   
 </head>
 <body>
@@ -41,12 +41,19 @@
       </a>
       <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Open menu"><span class="nav-toggle__bars" aria-hidden="true"></span></button>
       <nav class="nav" id="site-nav" aria-label="Main">
-        <a class="nav__link" href="/index.html#services">Services</a>
-        <a class="nav__link" href="/index.html#process">Process</a>
-        <a class="nav__link" href="/about.html">About</a>
-        <a class="nav__link" href="/blog.html">Blog</a>
+        <div class="nav__item">
+          <a class="nav__link" href="index.html#services">Services</a>
+          <button class="nav__sub-toggle" type="button" aria-expanded="false" aria-controls="nav-sub-services" aria-label="Show services menu"></button>
+          <div class="nav__sub" id="nav-sub-services">
+            <ul class="nav__sub-list" aria-label="Services"><li><a href="services/control4-smart-home-automation.html">Control4 automation</a></li><li><a href="services/lighting-control.html">Lighting control</a></li><li><a href="services/home-cinema.html">Home cinema</a></li><li><a href="services/automated-shades.html">Automated shades</a></li><li><a href="services/climate-control.html">Climate control</a></li><li><a href="services/multi-room-audio-video.html">Multi-room audio &amp; video</a></li><li><a href="services/wifi-networking.html">Wi-Fi &amp; networking</a></li><li><a href="services/security-access-control.html">Security &amp; access control</a></li><li><a href="services/design-cabling-racks.html">Design, cabling &amp; racks</a></li><li><a href="services/support-remote-monitoring.html">Support &amp; monitoring</a></li><li><a href="services/lutron-lighting-control.html">Lutron lighting</a></li><li><a href="services/sonos-integration.html">Sonos integration</a></li></ul>
+            <ul class="nav__sub-list nav__sub-list--areas" aria-label="Service areas"><li class="nav__sub-head">Areas we serve</li><li><a href="areas/lyford-cay.html">Lyford Cay</a></li><li><a href="areas/albany.html">Albany</a></li><li><a href="areas/old-fort-bay.html">Old Fort Bay</a></li><li><a href="areas/ocean-club-paradise-island.html">Ocean Club &amp; Paradise Island</a></li><li><a href="areas/family-islands.html">Family Islands</a></li></ul>
+          </div>
+        </div>
+        <a class="nav__link" href="index.html#process">Process</a>
+        <a class="nav__link" href="about.html">About</a>
+        <a class="nav__link" href="blog.html">Blog</a>
         <a class="nav__phone" href="tel:+12428209013" aria-label="Call Island Integration on +1 (242) 820-9013">+1 (242) 820-9013</a>
-        <a class="btn btn--primary btn--sm" href="/index.html#contact">Request a consultation</a>
+        <a class="btn btn--primary btn--sm" href="index.html#contact">Request a consultation</a>
       </nav>
     </div>
   </header>
@@ -74,7 +81,7 @@
         </div>
         <nav aria-label="Services">
           <h2>Services</h2>
-          <ul><li><a href="services/control4-smart-home-automation.html">Control4 automation</a></li><li><a href="services/lighting-control.html">Lighting control</a></li><li><a href="services/home-cinema.html">Home cinema</a></li><li><a href="services/automated-shades.html">Automated shades</a></li><li><a href="services/climate-control.html">Climate control</a></li><li><a href="services/multi-room-audio-video.html">Multi-room audio &amp; video</a></li><li><a href="services/wifi-networking.html">Wi-Fi &amp; networking</a></li><li><a href="services/security-access-control.html">Security &amp; access control</a></li><li><a href="services/design-cabling-racks.html">Design, cabling &amp; racks</a></li><li><a href="services/support-remote-monitoring.html">Support &amp; monitoring</a></li></ul>
+          <ul><li><a href="services/control4-smart-home-automation.html">Control4 automation</a></li><li><a href="services/lighting-control.html">Lighting control</a></li><li><a href="services/home-cinema.html">Home cinema</a></li><li><a href="services/automated-shades.html">Automated shades</a></li><li><a href="services/climate-control.html">Climate control</a></li><li><a href="services/multi-room-audio-video.html">Multi-room audio &amp; video</a></li><li><a href="services/wifi-networking.html">Wi-Fi &amp; networking</a></li><li><a href="services/security-access-control.html">Security &amp; access control</a></li><li><a href="services/design-cabling-racks.html">Design, cabling &amp; racks</a></li><li><a href="services/support-remote-monitoring.html">Support &amp; monitoring</a></li><li><a href="services/lutron-lighting-control.html">Lutron lighting</a></li><li><a href="services/sonos-integration.html">Sonos integration</a></li></ul>
         </nav>
         <nav aria-label="Footer">
           <h2>Explore</h2>
@@ -87,10 +94,10 @@
             <li><a href="https://www.facebook.com/people/Island-Integration/61580228917460/" rel="noopener">Facebook</a></li>
           </ul>
         </nav>
-        <div>
+        <nav aria-label="Service areas">
           <h2>Service areas</h2>
-          <ul><li>Nassau</li><li>New Providence</li><li>Paradise Island</li><li>Lyford Cay</li><li>Old Fort Bay</li><li>Albany</li><li>Ocean Club</li></ul>
-        </div>
+          <ul><li>Nassau &amp; New Providence</li><li><a href="areas/lyford-cay.html">Lyford Cay</a></li><li><a href="areas/albany.html">Albany</a></li><li><a href="areas/old-fort-bay.html">Old Fort Bay</a></li><li><a href="areas/ocean-club-paradise-island.html">Ocean Club &amp; Paradise Island</a></li><li><a href="areas/family-islands.html">Family Islands</a></li></ul>
+        </nav>
         <div>
           <h2>Contact</h2>
           <ul>
@@ -112,6 +119,6 @@
     <a class="mobile-bar__call" href="tel:+12428209013" aria-label="Call Island Integration on +1 (242) 820-9013">Call now</a>
     <a class="mobile-bar__cta" href="/index.html#contact">Request a consultation</a>
   </div>
-  <script src="/assets/js/site.js?v=20261104" defer></script>
+  <script src="/assets/js/site.js?v=20261107" defer></script>
 </body>
 </html>

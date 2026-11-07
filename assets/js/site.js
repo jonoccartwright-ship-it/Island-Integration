@@ -42,6 +42,20 @@
     if (mq.addEventListener) mq.addEventListener('change', onMq); else if (mq.addListener) mq.addListener(onMq);
   }
 
+  /* ---- Services dropdown (mobile toggle; desktop uses hover/focus) ------ */
+  var subToggle = doc.querySelector('.nav__sub-toggle');
+  var subItem = subToggle && subToggle.closest('.nav__item');
+  if (subToggle && subItem) {
+    subToggle.addEventListener('click', function (e) {
+      e.stopPropagation();
+      var open = subItem.classList.toggle('is-open');
+      subToggle.setAttribute('aria-expanded', String(open));
+    });
+    doc.addEventListener('click', function (e) {
+      if (!e.target.closest('.nav__item')) { subItem.classList.remove('is-open'); subToggle.setAttribute('aria-expanded', 'false'); }
+    });
+  }
+
   /* ---- Header border once the page scrolls ----------------------------- */
   var header = doc.querySelector('.site-header');
   if (header) {
