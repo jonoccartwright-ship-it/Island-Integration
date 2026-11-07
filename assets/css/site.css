@@ -474,3 +474,29 @@ button, input, select, textarea { font: inherit; color: inherit; }
   body { font-size: 11pt; }
 }
 @media (forced-colors: active) { .btn { border: 2px solid ButtonText; } .eyebrow::before { background: CanvasText; } }
+
+/* ---------- Services dropdown ---------- */
+.nav__item { position: relative; display: flex; align-items: center; }
+.nav__sub-toggle { display: none; background: none; border: 0; width: 2.75rem; height: 2.75rem; cursor: pointer; margin-left: auto; position: relative; }
+.nav__sub-toggle::before { content: ""; position: absolute; left: 50%; top: 50%; width: 0.55rem; height: 0.55rem; border-right: 2px solid var(--ink); border-bottom: 2px solid var(--ink); transform: translate(-50%, -70%) rotate(45deg); transition: transform 0.2s var(--ease); }
+.nav__sub-toggle[aria-expanded="true"]::before { transform: translate(-50%, -30%) rotate(225deg); }
+.nav__sub { display: none; }
+.nav__sub-list { list-style: none; margin: 0; padding: 0; display: grid; gap: 0.15rem; }
+.nav__sub-list a { display: block; padding: 0.45rem 0.6rem; border-radius: 8px; color: var(--ink); text-decoration: none; font-weight: 500; font-size: 0.95rem; }
+.nav__sub-list a:hover, .nav__sub-list a:focus-visible { background: var(--stone, #f4f2ec); color: var(--teal-ink); }
+.nav__sub-head { font-size: 0.72rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted, #6b7280); padding: 0.45rem 0.6rem 0.2rem; font-weight: 650; }
+@media (min-width: 56.3em) {
+  .nav__sub { position: absolute; top: calc(100% + 0.5rem); left: -1rem; z-index: 60; background: #fff; border: 1px solid var(--line); border-radius: 14px; box-shadow: 0 24px 48px rgb(13 17 23 / 0.14); padding: 0.75rem; grid-template-columns: 15rem 13rem; gap: 0.75rem; }
+  .nav__sub::before { content: ""; position: absolute; left: 0; right: 0; top: -0.6rem; height: 0.6rem; }
+  .nav__item:hover .nav__sub, .nav__item:focus-within .nav__sub, .nav__item.is-open .nav__sub { display: grid; }
+  .nav__sub-list--areas { border-left: 1px solid var(--line); padding-left: 0.75rem; align-content: start; }
+}
+@media (max-width: 56.25em) {
+  .js .nav { flex-wrap: nowrap; }
+  .js .nav__item { flex-wrap: wrap; border-bottom: 1px solid var(--line); }
+  .js .nav__item .nav__link { flex: 1; border-bottom: 0; }
+  .js .nav__sub-toggle { display: inline-block; }
+  .js .nav__item.is-open .nav__sub { display: grid; width: 100%; padding: 0 0 0.75rem 0.75rem; gap: 0.5rem; }
+  .js .nav__sub-list a { padding: 0.55rem 0.5rem; }
+  .nav__sub { width: 100%; }
+}
